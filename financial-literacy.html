@@ -1,0 +1,1722 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Financial Literacy — 6-Day Intensive</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap');
+
+:root {
+  --bg:#f8f6f2;--card:#fff;--ink:#18181b;--ink2:#3f3f46;--ink3:#71717a;--ink4:#a1a1aa;--rule:#e4e4e7;
+  --d1:#b45309;--d2:#059669;--d3:#2563eb;--d4:#7c3aed;--d5:#dc2626;--d6:#0891b2;--dg:#6b7280;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'DM Sans','Noto Sans KR',sans-serif;background:var(--bg);color:var(--ink);font-size:15px;line-height:1.75;}
+
+/* ── LANG SWITCHER ── */
+.lang-bar{background:#111;display:flex;align-items:center;justify-content:space-between;padding:8px 20px;}
+.lang-bar-title{color:rgba(255,255,255,0.5);font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;}
+.lang-btns{display:flex;gap:4px;}
+.lang-btn{padding:5px 16px;border:none;border-radius:20px;font-size:12px;font-weight:600;cursor:pointer;transition:all .15s;font-family:inherit;}
+.lang-btn.active{background:white;color:#111;}
+.lang-btn:not(.active){background:rgba(255,255,255,.1);color:rgba(255,255,255,.6);}
+.lang-btn:not(.active):hover{background:rgba(255,255,255,.2);}
+
+/* ── GLOBAL NAV ── */
+.gnav{position:sticky;top:0;z-index:100;background:var(--ink);display:flex;gap:0;overflow-x:auto;scrollbar-width:none;}
+.gnav::-webkit-scrollbar{display:none;}
+.gnav-item{flex-shrink:0;padding:10px 16px;cursor:pointer;font-size:12px;font-weight:600;color:rgba(255,255,255,.45);border-bottom:3px solid transparent;transition:all .2s;white-space:nowrap;}
+.gnav-item:hover{color:white;}
+.gnav-item.active{color:white;border-bottom-color:var(--dc);}
+
+/* ── LANG PANELS ── */
+.lang-panel{display:none;}
+.lang-panel.active{display:block;}
+
+/* ── DAY SECTIONS ── */
+.sec{display:none;}.sec.active{display:block;}
+
+/* ── HERO ── */
+.hero{padding:44px 36px 32px;color:white;position:relative;overflow:hidden;}
+.hero::after{content:attr(data-n);position:absolute;right:-8px;top:-16px;font-family:'DM Serif Display',serif;font-size:160px;font-weight:400;color:rgba(255,255,255,.06);line-height:1;pointer-events:none;}
+.hero-eye{font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;opacity:.6;margin-bottom:10px;}
+.hero-title{font-family:'DM Serif Display',serif;font-size:34px;line-height:1.15;margin-bottom:8px;}
+.hero-sub{font-size:15px;opacity:.72;font-weight:300;max-width:540px;}
+.hero-q{margin-top:20px;padding:14px 18px;background:rgba(255,255,255,.1);border-left:3px solid rgba(255,255,255,.4);border-radius:0 4px 4px 0;font-family:'DM Serif Display',serif;font-size:16px;font-style:italic;max-width:560px;}
+.hero-meta{margin-top:14px;display:flex;gap:10px;flex-wrap:wrap;}
+.hero-chip{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.18);padding:4px 12px;border-radius:20px;font-size:12px;color:rgba(255,255,255,.8);}
+
+/* ── CONTENT ── */
+.cw{max-width:820px;margin:0 auto;padding:28px 22px 60px;}
+.sec-title{font-family:'DM Serif Display',serif;font-size:22px;color:var(--ink);margin:32px 0 16px;padding-bottom:8px;border-bottom:2px solid var(--dc);}
+
+/* ── CARDS ── */
+.ccard{background:var(--card);border:1px solid var(--rule);border-radius:10px;overflow:hidden;margin-bottom:16px;}
+.ccard-head{padding:14px 18px;border-bottom:1px solid var(--rule);display:flex;align-items:center;gap:12px;}
+.ccard-icon{font-size:22px;flex-shrink:0;}
+.ccard-label{font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--dc);margin-bottom:2px;}
+.ccard-title{font-family:'DM Serif Display',serif;font-size:18px;color:var(--ink);}
+.ccard-body{padding:18px 20px;}
+.ccard-body p{font-size:14.5px;color:var(--ink2);line-height:1.8;margin-bottom:10px;}
+.ccard-body p:last-child{margin-bottom:0;}
+.ccard-body strong{color:var(--ink);font-weight:600;}
+
+/* ── DEFINITION BOX ── */
+.defbox{background:var(--bg);border-radius:8px;padding:16px 18px;margin:12px 0;border-left:3px solid var(--dc);}
+.defbox-term{font-family:'DM Serif Display',serif;font-size:17px;color:var(--dc);margin-bottom:6px;}
+.defbox-body{font-size:14px;color:var(--ink2);line-height:1.8;}
+.defbox-body strong{color:var(--ink);font-weight:600;}
+.defbox-formula{background:white;border:1px solid var(--rule);border-radius:6px;padding:10px 14px;margin-top:8px;font-family:monospace;font-size:13.5px;color:var(--ink);}
+
+/* ── REAL LIFE EXAMPLE ── */
+.real-example{background:#fffbeb;border:2px solid #fde68a;border-radius:10px;padding:16px 20px;margin:14px 0;}
+.real-example-label{font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#92400e;margin-bottom:8px;display:flex;align-items:center;gap:6px;}
+.real-example p,.real-example li{font-size:14px;color:#1c1917;line-height:1.75;}
+.real-example ul{list-style:none;padding:0;}
+.real-example ul li{padding-left:18px;position:relative;margin-bottom:6px;}
+.real-example ul li::before{content:'💰';position:absolute;left:0;font-size:11px;top:3px;}
+.real-example strong{color:#78350f;font-weight:700;}
+.real-example .account-tag{display:inline-block;background:#fff;border:1px solid #f59e0b;border-radius:4px;font-size:11px;font-weight:700;color:#b45309;padding:1px 6px;margin:0 2px;}
+
+/* ── ANALOGY ── */
+.analogy{border-left:3px solid var(--dc);background:white;padding:14px 18px;margin:14px 0;border-radius:0 6px 6px 0;}
+.analogy-lbl{font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--dc);margin-bottom:5px;}
+.analogy p{font-size:14px;color:var(--ink2);line-height:1.75;}
+.analogy p strong{color:var(--ink);}
+
+/* ── EXAMPLE ── */
+.example{border:1.5px solid var(--dc);border-radius:8px;padding:14px 18px;margin:14px 0;}
+.example-lbl{font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--dc);margin-bottom:7px;}
+.example p,.example li{font-size:14px;color:var(--ink2);line-height:1.75;}
+.example ul{list-style:none;padding:0;}
+.example ul li{padding-left:16px;position:relative;margin-bottom:5px;}
+.example ul li::before{content:'→';position:absolute;left:0;color:var(--dc);font-size:12px;top:2px;}
+.example strong{color:var(--ink);font-weight:600;}
+
+/* ── KEY POINT ── */
+.kp{background:var(--ink);color:white;border-radius:8px;padding:14px 18px;margin:14px 0;display:flex;gap:12px;align-items:flex-start;}
+.kp-icon{font-size:18px;flex-shrink:0;margin-top:1px;}
+.kp p{font-size:14px;line-height:1.7;color:#d4d4d8;}
+.kp p strong{color:white;font-weight:600;}
+
+/* ── COMPARE TABLE ── */
+.ctab{width:100%;border-collapse:collapse;font-size:13.5px;margin:14px 0;}
+.ctab th{background:var(--ink);color:white;padding:10px 14px;text-align:left;font-size:11px;font-weight:600;letter-spacing:.08em;}
+.ctab td{padding:10px 14px;border-bottom:1px solid var(--rule);color:var(--ink2);vertical-align:top;}
+.ctab tr:last-child td{border-bottom:none;}
+.ctab tr:nth-child(even) td{background:var(--bg);}
+.ctab td strong{color:var(--ink);font-weight:600;}
+.tag-g{color:#059669;font-weight:600;}.tag-r{color:#dc2626;font-weight:600;}
+
+/* ── CHAIN ── */
+.chain{display:flex;align-items:center;flex-wrap:wrap;gap:6px;padding:12px 16px;background:var(--bg);border-radius:6px;margin:12px 0;}
+.chain-node{background:white;border:1.5px solid var(--rule);padding:6px 11px;border-radius:4px;font-size:13px;font-weight:500;color:var(--ink2);}
+.chain-node.hi{border-color:var(--dc);color:var(--dc);font-weight:600;}
+.chain-node.bad{border-color:#dc2626;color:#dc2626;}
+.chain-node.good{border-color:#059669;color:#059669;}
+.chain-arr{color:var(--ink4);font-size:16px;}
+
+/* ── DEEP DIVE ── */
+.deepdive{background:rgba(0,0,0,.03);border:1px solid var(--rule);border-radius:8px;padding:16px 18px;margin:14px 0;}
+.dd-label{font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--ink3);margin-bottom:10px;display:flex;align-items:center;gap:6px;}
+.dd-label::before{content:'🔬';font-size:14px;}
+.dd-body{font-size:14px;color:var(--ink2);line-height:1.8;}
+.dd-body strong{color:var(--ink);font-weight:600;}
+
+/* ── PRACTICE ── */
+.practice{border:2px dashed var(--rule);border-radius:8px;padding:16px 20px;margin:14px 0;background:white;}
+.practice-lbl{font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--dc);margin-bottom:8px;}
+.practice ul{list-style:none;padding:0;margin-top:8px;}
+.practice ul li{position:relative;padding-left:22px;margin-bottom:6px;font-size:14px;color:var(--ink2);}
+.practice ul li::before{content:'☐';position:absolute;left:0;color:var(--ink4);}
+
+/* ── VOCAB GRID ── */
+.vocab-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:14px 0;}
+.vocab-item{background:var(--card);border:1px solid var(--rule);border-radius:8px;padding:12px 14px;}
+.vocab-term{font-size:13px;font-weight:700;color:var(--dc);margin-bottom:4px;}
+.vocab-def{font-size:12.5px;color:var(--ink3);line-height:1.6;}
+.vocab-def strong{color:var(--ink2);font-weight:600;}
+
+/* ── FORMULA ── */
+.formula{background:white;border:2px solid var(--dc);border-radius:8px;padding:14px 18px;margin:12px 0;text-align:center;}
+.formula-label{font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--dc);margin-bottom:8px;}
+.formula-eq{font-family:'DM Serif Display',serif;font-size:20px;color:var(--ink);margin-bottom:6px;}
+.formula-note{font-size:12.5px;color:var(--ink3);line-height:1.6;}
+
+/* ── GLOSSARY ── */
+.glossary-search{width:100%;padding:10px 16px;border:2px solid var(--rule);border-radius:8px;font-size:14px;font-family:inherit;color:var(--ink);background:white;margin-bottom:16px;outline:none;transition:border-color .15s;}
+.glossary-search:focus{border-color:var(--dc);}
+.glossary-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.glossary-item{background:var(--card);border:1px solid var(--rule);border-radius:8px;padding:14px 16px;transition:border-color .15s;}
+.glossary-item:hover{border-color:var(--dc);}
+.glossary-item.hidden{display:none;}
+.glossary-term{font-size:14px;font-weight:700;color:var(--dc);margin-bottom:4px;}
+.glossary-cat{display:inline-block;font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:1px 7px;border-radius:4px;margin-bottom:6px;}
+.cat-account{background:#dbeafe;color:#1e40af;}
+.cat-investment{background:#dcfce7;color:#166534;}
+.cat-market{background:#fef3c7;color:#92400e;}
+.cat-economy{background:#ede9fe;color:#5b21b6;}
+.cat-risk{background:#fee2e2;color:#991b1b;}
+.glossary-def{font-size:13px;color:var(--ink3);line-height:1.65;}
+.glossary-def strong{color:var(--ink2);}
+.glossary-example{margin-top:6px;font-size:12px;color:var(--ink4);font-style:italic;border-top:1px solid var(--rule);padding-top:6px;}
+.glossary-empty{text-align:center;color:var(--ink4);padding:40px;font-size:14px;}
+
+/* ── QUIZ ── */
+.quiz{margin-top:36px;background:var(--ink);border-radius:10px;padding:26px 26px 30px;color:white;}
+.quiz-hdr{display:flex;align-items:center;gap:12px;margin-bottom:22px;}
+.quiz-icon{font-size:24px;}
+.quiz-title{font-family:'DM Serif Display',serif;font-size:22px;}
+.quiz-sub{font-size:13px;color:#a1a1aa;margin-top:2px;}
+.qblock{margin-bottom:22px;}
+.qtext{font-size:15px;font-weight:500;color:white;margin-bottom:12px;line-height:1.55;}
+.qnum{color:var(--dc);margin-right:6px;font-weight:700;}
+.opts{display:flex;flex-direction:column;gap:8px;}
+.opt{background:rgba(255,255,255,.07);border:1.5px solid rgba(255,255,255,.1);padding:11px 14px;border-radius:7px;cursor:pointer;font-size:13.5px;color:#d4d4d8;transition:all .15s;display:flex;gap:10px;align-items:flex-start;}
+.opt:hover{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.2);}
+.opt.correct{background:rgba(5,150,105,.22);border-color:#059669;color:white;}
+.opt.wrong{background:rgba(220,38,38,.15);border-color:#dc2626;color:#fca5a5;}
+.opt .ol{font-weight:700;color:var(--dc);flex-shrink:0;}
+.exp{display:none;margin-top:10px;padding:10px 14px;background:rgba(255,255,255,.06);border-radius:5px;font-size:13px;color:#a1a1aa;line-height:1.65;}
+.exp.show{display:block;}
+.exp strong{color:white;}
+.quiz-btn{margin-top:18px;padding:12px 28px;background:var(--dc);color:white;border:none;border-radius:5px;font-size:14px;font-weight:600;cursor:pointer;transition:opacity .2s;font-family:inherit;}
+.quiz-btn:hover{opacity:.85;}
+.quiz-res{display:none;margin-top:18px;padding:16px;background:rgba(255,255,255,.08);border-radius:6px;text-align:center;}
+.quiz-res.show{display:block;}
+.res-score{font-family:'DM Serif Display',serif;font-size:32px;color:white;}
+.res-msg{font-size:14px;color:#a1a1aa;margin-top:4px;}
+
+hr.div{border:none;border-top:1px solid var(--rule);margin:24px 0;}
+
+@media(max-width:640px){
+  .hero{padding:28px 18px 22px;}.hero-title{font-size:26px;}
+  .cw{padding:18px 14px 48px;}
+  .vocab-grid,.glossary-grid{grid-template-columns:1fr;}
+  .quiz{padding:18px 16px 22px;}
+}
+</style>
+</head>
+<body>
+
+<!-- LANG BAR -->
+<div class="lang-bar">
+  <span class="lang-bar-title">Financial Literacy · 6-Day Intensive</span>
+  <div class="lang-btns">
+    <button class="lang-btn active" onclick="setLang('en',this)">English</button>
+    <button class="lang-btn" onclick="setLang('kr',this)">한국어</button>
+  </div>
+</div>
+
+<!-- GLOBAL NAV -->
+<nav class="gnav" id="gnav">
+  <div class="gnav-item active" onclick="showDay(1,this)" style="--dc:var(--d1)">📦 Day 1</div>
+  <div class="gnav-item" onclick="showDay(2,this)" style="--dc:var(--d2)">📈 Day 2</div>
+  <div class="gnav-item" onclick="showDay(3,this)" style="--dc:var(--d3)">💸 Day 3</div>
+  <div class="gnav-item" onclick="showDay(4,this)" style="--dc:var(--d4)">🌍 Day 4</div>
+  <div class="gnav-item" onclick="showDay(5,this)" style="--dc:var(--d5)">🤖 Day 5</div>
+  <div class="gnav-item" onclick="showDay(6,this)" style="--dc:var(--d6)">💼 Day 6</div>
+  <div class="gnav-item" onclick="showDay(7,this)" style="--dc:var(--dg)">📖 Glossary / 용어사전</div>
+</nav>
+
+<!-- ═══════════════════════════════════════
+     ENGLISH PANEL
+═══════════════════════════════════════ -->
+<div class="lang-panel active" id="panel-en">
+
+<!-- ─── EN DAY 1 ─── -->
+<div class="sec active" id="en-s1" style="--dc:var(--d1)">
+<div class="hero" style="background:var(--d1)" data-n="1">
+  <div class="hero-eye">Day 1 · Foundation</div>
+  <div class="hero-title">Stocks, Bonds, ETFs<br>&amp; Your Accounts</div>
+  <div class="hero-sub">The building blocks of investing — what they are, how they work, and where your money actually goes</div>
+  <div class="hero-q">"When I put money into my Roth IRA, what is it actually doing?"</div>
+  <div class="hero-meta"><span class="hero-chip">⏱ 35–45 min</span><span class="hero-chip">📖 4 concepts</span><span class="hero-chip">🎯 6 quiz questions</span></div>
+</div>
+<div class="cw">
+
+<div class="sec-title">Part 1 — Stocks: Buying a Piece of a Company</div>
+
+<div class="ccard">
+  <div class="ccard-head"><div class="ccard-icon">🏢</div><div><div class="ccard-label">Concept 01</div><div class="ccard-title">What is a Stock?</div></div></div>
+  <div class="ccard-body">
+    <p>When a company needs money to grow, it has two main options: <strong>borrow it (bonds)</strong> or <strong>sell small slices of ownership (stocks)</strong>. When you buy a share of stock, you literally become a tiny owner of that company.</p>
+    <div class="defbox">
+      <div class="defbox-term">Stock (also called a Share or Equity)</div>
+      <div class="defbox-body">A certificate of ownership in a company. As a stockholder you have: ① the right to receive a portion of profits (<strong>dividends</strong>), ② voting rights at shareholder meetings, and ③ a claim on assets if the company is ever sold.</div>
+    </div>
+    <div class="analogy">
+      <div class="analogy-lbl">🍕 Think of it like this</div>
+      <p>Imagine you and 9 friends each chip in $1,000 to open a pizza restaurant ($10,000 total). Each of you now owns <strong>10% of the restaurant</strong>. If business booms and the restaurant becomes worth $20,000, your 10% slice is now worth $2,000. If it fails, you lose your $1,000. That's exactly how stocks work.</p>
+    </div>
+    <div class="real-example">
+      <div class="real-example-label">💼 Real-life in your accounts</div>
+      <ul>
+        <li>You buy <strong>10 shares of Apple (AAPL)</strong> at $200 each = $2,000 invested in your <span class="account-tag">Roth IRA</span>. If Apple grows to $300/share, your position is worth $3,000 — and in a Roth, that $1,000 gain is <strong>100% tax-free when you retire</strong>.</li>
+        <li>Same Apple stock in your <span class="account-tag">Brokerage</span>: when you sell for a $1,000 gain, you'll owe capital gains tax (15–20%). That's why growth stocks belong in your Roth.</li>
+        <li>In your <span class="account-tag">401k</span>: you likely own stocks indirectly through mutual funds or target-date funds. Same principle — you're a partial owner of hundreds of companies.</li>
+      </ul>
+    </div>
+    <div class="kp"><div class="kp-icon">💡</div><p><strong>Two ways stocks make you money:</strong> (1) The price goes up — buy at $50, sell at $80, pocket $30. (2) <strong>Dividends</strong> — some companies (like Coca-Cola, Johnson &amp; Johnson) pay out a portion of profits in cash every quarter. Think of it as rent from your ownership slice.</p></div>
+  </div>
+</div>
+
+<div class="sec-title">Part 2 — Bonds: Lending Money for Interest</div>
+
+<div class="ccard">
+  <div class="ccard-head"><div class="ccard-icon">📜</div><div><div class="ccard-label">Concept 02</div><div class="ccard-title">What is a Bond?</div></div></div>
+  <div class="ccard-body">
+    <div class="defbox">
+      <div class="defbox-term">Bond (also called Fixed Income)</div>
+      <div class="defbox-body">An IOU issued by a government or company. They're saying: <strong>"Lend us X dollars. We'll pay you Y% interest every year, and return your original money on date Z."</strong> You're the lender; they're the borrower.</div>
+    </div>
+    <div class="analogy">
+      <div class="analogy-lbl">🤝 Simple analogy</div>
+      <p>Your friend asks to borrow $1,000. "I'll pay you back in 2 years plus $60 interest." You just made a private bond — you're lending money at 6% annually. A real bond works identically, just with governments or big companies instead of your friend.</p>
+    </div>
+    <div class="real-example">
+      <div class="real-example-label">💼 Real-life examples</div>
+      <ul>
+        <li><strong>US Treasury Bond</strong> — lend money to the US government. Considered the safest investment in the world. Your <span class="account-tag">401k</span>'s "stable value fund" or bond fund likely holds these.</li>
+        <li><strong>Corporate Bond</strong> — lend money to Apple or Amazon. Higher interest than Treasuries because there's slightly more risk the company could struggle.</li>
+        <li><strong>BND (Vanguard Bond ETF)</strong> — instead of buying one bond, this ETF holds thousands of them, so you're diversified across the entire US bond market.</li>
+      </ul>
+    </div>
+    <div class="kp"><div class="kp-icon">⚠️</div><p><strong>The most important bond rule: interest rates go up → bond prices go DOWN.</strong><br>Here's why: You own a bond paying 3% interest. Suddenly new bonds are paying 5%. Who would buy your 3% bond at full price? Nobody — so the price drops until it's attractive again. It's like trying to resell a concert ticket after the hot new opener was added to a different show. Your ticket became less valuable.</p></div>
+    <div class="deepdive">
+      <div class="dd-label">Duration — how sensitive is a bond to rate changes?</div>
+      <div class="dd-body"><strong>Duration 10 years = if rates rise 1%, bond price falls ~10%.</strong> Short-term bonds (1–3 years) barely move. Long-term bonds (20+ years) swing wildly. This is why the <strong>TLT ETF</strong> (20+ year Treasuries, duration ~17) is risky when interest rates are uncertain — a 1% rate rise could mean a ~17% loss on that ETF.</div>
+    </div>
+    <table class="ctab">
+      <tr><th></th><th>Stocks</th><th>Bonds</th></tr>
+      <tr><td><strong>What you own</strong></td><td>Partial ownership</td><td>A loan you made</td></tr>
+      <tr><td><strong>How you earn</strong></td><td>Price gains + dividends</td><td>Regular interest payments</td></tr>
+      <tr><td><strong>Risk level</strong></td><td><span class="tag-r">Higher</span></td><td><span class="tag-g">Lower</span></td></tr>
+      <tr><td><strong>Expected return</strong></td><td><span class="tag-g">Higher long-term</span></td><td><span class="tag-r">Lower</span></td></tr>
+      <tr><td><strong>Rate sensitivity</strong></td><td>Indirect</td><td>Direct (inverse)</td></tr>
+    </table>
+  </div>
+</div>
+
+<div class="sec-title">Part 3 — ETFs: The Easiest Way to Diversify</div>
+
+<div class="ccard">
+  <div class="ccard-head"><div class="ccard-icon">🧺</div><div><div class="ccard-label">Concept 03</div><div class="ccard-title">What is an ETF?</div></div></div>
+  <div class="ccard-body">
+    <div class="defbox">
+      <div class="defbox-term">ETF — Exchange Traded Fund</div>
+      <div class="defbox-body">A basket containing hundreds or thousands of stocks or bonds, packaged into a single thing you can buy and sell like a regular stock. One purchase gives you instant diversification.</div>
+    </div>
+    <div class="analogy">
+      <div class="analogy-lbl">🛒 Grocery store analogy</div>
+      <p>Instead of buying individual ingredients (Apple stock, Microsoft stock, Google stock…), you buy a <strong>pre-made meal kit</strong> that already has everything. If one ingredient is bad, the others still make a good meal. That's an ETF — one purchase, hundreds of companies, instant diversification.</p>
+    </div>
+    <div class="real-example">
+      <div class="real-example-label">💼 The ETFs you'll see most in your accounts</div>
+      <ul>
+        <li><strong>VTI</strong> — Vanguard Total Stock Market. Owns ~4,000 US companies. This is literally "invest in all of America." Fee: 0.03%/yr.</li>
+        <li><strong>VOO</strong> — S&amp;P 500. The 500 biggest US companies. What Warren Buffett recommends for his estate. Fee: 0.03%/yr.</li>
+        <li><strong>QQQ</strong> — Top 100 Nasdaq companies. Tech-heavy (Apple, Nvidia, Google). Higher growth potential, higher volatility.</li>
+        <li><strong>BND</strong> — Total US Bond Market. Stable, pays regular income. Good for <span class="account-tag">401k</span> or <span class="account-tag">Traditional IRA</span>.</li>
+      </ul>
+    </div>
+    <div class="deepdive">
+      <div class="dd-label">Why a 0.03% fee vs 1% fee is a MASSIVE difference over time</div>
+      <div class="dd-body">Invest $100,000, earn 7%/year, hold for 30 years:<br>
+      • ETF at 0.03% fee → you end up with about <strong>$730,000</strong><br>
+      • Active mutual fund at 1% fee → about <strong>$570,000</strong><br>
+      The 0.97% difference costs you <strong>$160,000</strong> over 30 years. That's why index ETFs beat most active fund managers — not because they're smarter, but because they charge you almost nothing.</div>
+    </div>
+  </div>
+</div>
+
+<div class="sec-title">Part 4 — Your Accounts: Same Investment, Different Tax Treatment</div>
+
+<div class="ccard">
+  <div class="ccard-head"><div class="ccard-icon">🏦</div><div><div class="ccard-label">Concept 04</div><div class="ccard-title">Roth IRA vs Traditional 401k vs Brokerage</div></div></div>
+  <div class="ccard-body">
+    <p>Here's something most people don't realize: <strong>where you hold an investment matters almost as much as what you invest in.</strong> The exact same stock can produce very different after-tax results depending on which account it's in.</p>
+    <table class="ctab">
+      <tr><th></th><th>Roth IRA</th><th>Traditional 401k</th><th>Brokerage</th></tr>
+      <tr><td><strong>You put in</strong></td><td>After-tax money</td><td>Pre-tax money</td><td>After-tax money</td></tr>
+      <tr><td><strong>Tax while growing</strong></td><td><span class="tag-g">Zero</span></td><td><span class="tag-g">Zero</span></td><td>Taxed on dividends &amp; interest</td></tr>
+      <tr><td><strong>Tax when you withdraw</strong></td><td><span class="tag-g">Zero!</span></td><td>Ordinary income tax</td><td>Capital gains tax</td></tr>
+      <tr><td><strong>Annual limit (2024)</strong></td><td>$7,000</td><td>$23,000</td><td>Unlimited</td></tr>
+      <tr><td><strong>Access rules</strong></td><td>Restricted before 59½</td><td>Restricted before 59½</td><td>Withdraw anytime</td></tr>
+      <tr><td><strong>Best for</strong></td><td>High-growth assets</td><td>High-dividend, bonds</td><td>Index ETFs, long holds</td></tr>
+    </table>
+    <div class="real-example">
+      <div class="real-example-label">💼 The math that makes Roth IRA so powerful</div>
+      <ul>
+        <li>You put <strong>$10,000</strong> into your <span class="account-tag">Roth IRA</span> and buy QQQ (Nasdaq ETF).</li>
+        <li>40 years later it's grown to <strong>$100,000</strong>. You withdraw it all. <strong>Tax: $0.</strong></li>
+        <li>Same $10,000 in a <span class="account-tag">Brokerage</span>: your $90,000 gain gets hit with 15–20% capital gains tax. You pay <strong>$13,500–$18,000 in taxes.</strong></li>
+        <li>Same investment, same growth, different account = <strong>$18,000 difference just from account choice.</strong></li>
+      </ul>
+    </div>
+    <div class="kp"><div class="kp-icon">📌</div><p><strong>Rule of thumb for account placement:</strong><br>
+    <strong>Roth IRA</strong> → Your most aggressive growth stuff (QQQ, individual growth stocks, REITs)<br>
+    <strong>401k / Traditional IRA</strong> → Bonds, dividend stocks (tax-deferred is still good)<br>
+    <strong>Brokerage</strong> → Index ETFs like VTI/VOO (they're already tax-efficient), things you might need to access early</p></div>
+    <div class="practice">
+      <div class="practice-lbl">✏️ Today's action items</div>
+      <ul>
+        <li>Open your Roth IRA and 401k apps — look at what you actually own</li>
+        <li>Is each holding a stock, ETF, or bond? Can you tell now?</li>
+        <li>Check the expense ratio of each ETF you hold — is anything above 0.20%?</li>
+        <li>Are your highest-growth assets in your Roth? They should be.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- EN DAY 1 QUIZ -->
+<div class="quiz">
+  <div class="quiz-hdr"><div class="quiz-icon">🎯</div><div><div class="quiz-title">Day 1 Quiz</div><div class="quiz-sub">6 questions · Click to reveal answers</div></div></div>
+
+  <div class="qblock" id="eq1a">
+    <div class="qtext"><span class="qnum">Q1.</span> Interest rates rise from 3% to 5%. What happens to the price of an existing bond paying 3% interest?</div>
+    <div class="opts">
+      <div class="opt" onclick="ans('eq1a','a','b')"><span class="ol">A</span> It goes up — higher rates mean more valuable bonds</div>
+      <div class="opt" onclick="ans('eq1a','b','b')"><span class="ol">B</span> It goes down — new bonds pay more, so nobody wants the old 3% bond at full price</div>
+      <div class="opt" onclick="ans('eq1a','c','b')"><span class="ol">C</span> It stays the same — the bond was already issued</div>
+    </div>
+    <div class="exp" id="e_eq1a">✅ <strong>B.</strong> Bond prices and interest rates always move in opposite directions. If new bonds pay 5%, who would buy your 3% bond unless its price dropped to make it equally attractive? This is why bond ETFs like BND or TLT lose value when the Fed raises rates.</div>
+  </div>
+
+  <div class="qblock" id="eq1b">
+    <div class="qtext"><span class="qnum">Q2.</span> You invest $100,000 for 30 years. ETF charges 0.03%, active fund charges 1%. Approximately how much more do you end up with in the ETF?</div>
+    <div class="opts">
+      <div class="opt" onclick="ans('eq1b','a','c')"><span class="ol">A</span> About $970 more (just 0.97% of $100k)</div>
+      <div class="opt" onclick="ans('eq1b','b','c')"><span class="ol">B</span> About $30,000 more</div>
+      <div class="opt" onclick="ans('eq1b','c','c')"><span class="ol">C</span> About $160,000 more — because the fee compounds against you every single year</div>
+    </div>
+    <div class="exp" id="e_eq1b">✅ <strong>C.</strong> The fee isn't just $970 once — it eats into your growing balance every year. That small difference, compounding over 30 years, becomes roughly $160,000. This is the single best argument for low-cost index ETFs over active mutual funds.</div>
+  </div>
+
+  <div class="qblock" id="eq1c">
+    <div class="qtext"><span class="qnum">Q3.</span> What is the biggest tax advantage of a Roth IRA?</div>
+    <div class="opts">
+      <div class="opt" onclick="ans('eq1c','a','c')"><span class="ol">A</span> You get a tax deduction when you put money in</div>
+      <div class="opt" onclick="ans('eq1c','b','c')"><span class="ol">B</span> There's no annual contribution limit</div>
+      <div class="opt" onclick="ans('eq1c','c','c')"><span class="ol">C</span> Your investments grow and you can withdraw everything tax-free after age 59½</div>
+    </div>
+    <div class="exp" id="e_eq1c">✅ <strong>C.</strong> With a Roth IRA you pay taxes on the money before it goes in, but from that point on — growth, dividends, gains — all of it is tax-free forever. The tax deduction on contribution is the Traditional IRA/401k benefit, not Roth.</div>
+  </div>
+
+  <div class="qblock" id="eq1d">
+    <div class="qtext"><span class="qnum">Q4.</span> VTI (total US stock market ETF) vs. a single Apple stock — which has more diversification?</div>
+    <div class="opts">
+      <div class="opt" onclick="ans('eq1d','a','a')"><span class="ol">A</span> VTI — it holds ~4,000 companies, so one bad company barely affects you</div>
+      <div class="opt" onclick="ans('eq1d','b','a')"><span class="ol">B</span> Apple stock — it's a bigger, more stable company</div>
+      <div class="opt" onclick="ans('eq1d','c','a')"><span class="ol">C</span> They're equally diversified</div>
+    </div>
+    <div class="exp" id="e_eq1d">✅ <strong>A.</strong> Apple is a single company. If Apple has a bad product launch, a regulatory problem, or loses market share, 100% of your investment feels it. VTI holds thousands of companies — if Apple tanks, it's only a small part of your overall portfolio.</div>
+  </div>
+
+  <div class="qblock" id="eq1e">
+    <div class="qtext"><span class="qnum">Q5.</span> Why is it smart to hold REITs (real estate funds) and high-dividend stocks in your Roth IRA specifically?</div>
+    <div class="opts">
+      <div class="opt" onclick="ans('eq1e','a','b')"><span class="ol">A</span> REITs can only be held in Roth accounts</div>
+      <div class="opt" onclick="ans('eq1e','b','b')"><span class="ol">B</span> They pay frequent dividends, which in a Roth account reinvest tax-free — maximizing the compounding effect</div>
+      <div class="opt" onclick="ans('eq1e','c','b')"><span class="ol">C</span> Real estate always goes up so it needs tax protection</div>
+    </div>
+    <div class="exp" id="e_eq1e">✅ <strong>B.</strong> REITs are required by law to distribute 90%+ of income as dividends. In a regular brokerage account, you'd owe tax on every distribution. In a Roth, those distributions reinvest tax-free, year after year. Over 20–30 years, this difference is huge.</div>
+  </div>
+
+  <div class="qblock" id="eq1f">
+    <div class="qtext"><span class="qnum">Q6.</span> A bond ETF has a duration of 10 years. If interest rates rise by 1%, what happens to the ETF's price?</div>
+    <div class="opts">
+      <div class="opt" onclick="ans('eq1f','a','c')"><span class="ol">A</span> +1% (rates up, so bond value up)</div>
+      <div class="opt" onclick="ans('eq1f','b','c')"><span class="ol">B</span> -1% (small decrease)</div>
+      <div class="opt" onclick="ans('eq1f','c','c')"><span class="ol">C</span> About -10% (duration tells you the price sensitivity — 10 year duration = ~10% move per 1% rate change)</div>
+    </div>
+    <div class="exp" id="e_eq1f">✅ <strong>C.</strong> Duration is the price sensitivity multiplier. Duration 10 means: rates up 1% → price down ~10%. Rates down 1% → price up ~10%. This is why TLT (duration ~17) is considered risky right now — if rates rise 1%, that ETF loses ~17% of its value.</div>
+  </div>
+
+  <button class="quiz-btn" onclick="result('ed1',6)">See Results</button>
+  <div class="quiz-res" id="r_ed1"><div class="res-score" id="sc_ed1"></div><div class="res-msg" id="ms_ed1"></div></div>
+</div>
+</div></div>
+<!-- END EN DAY 1 -->
+
+<!-- ─── EN DAY 2 ─── -->
+<div class="sec" id="en-s2" style="--dc:var(--d2)">
+<div class="hero" style="background:var(--d2)" data-n="2">
+  <div class="hero-eye">Day 2 · Market Mechanics</div>
+  <div class="hero-title">Why Do Markets<br>Go Up and Down?</div>
+  <div class="hero-sub">Valuation, earnings, psychology — how news actually translates into price movements</div>
+  <div class="hero-q">"Good news came out — so why did the stock DROP?"</div>
+  <div class="hero-meta"><span class="hero-chip">⏱ 35–45 min</span><span class="hero-chip">📖 4 concepts</span><span class="hero-chip">🎯 6 quiz questions</span></div>
+</div>
+<div class="cw">
+
+<div class="sec-title">Part 1 — Markets Price the Future, Not the Present</div>
+
+<div class="ccard">
+  <div class="ccard-head"><div class="ccard-icon">🔮</div><div><div class="ccard-label">Concept 01</div><div class="ccard-title">What a stock price actually represents</div></div></div>
+  <div class="ccard-body">
+    <p>The most common beginner mistake: <em>"The company reported great earnings, so the stock should go up!"</em> Sometimes true — but often the stock <strong>falls after great news</strong>. Here's why.</p>
+    <div class="defbox">
+      <div class="defbox-term">"Priced In" — the most important phrase in investing</div>
+      <div class="defbox-body">If investors already <em>expected</em> great news, that expectation was already baked into today's price. The stock only moves when something is <strong>better or worse than expected</strong> — not just good or bad in absolute terms.</div>
+    </div>
+    <div class="real-example">
+      <div class="real-example-label">💼 This happens constantly</div>
+      <ul>
+        <li><strong>"Buy the rumor, sell the news":</strong> Apple announces a new iPhone. Weeks of speculation drove the stock up. On announcement day — the news is exactly what everyone expected — the stock drops because traders take profits.</li>
+        <li><strong>Nvidia's earnings dilemma:</strong> Nvidia reports 20% revenue growth — genuinely impressive. But analysts expected 25%. Result: the stock falls 5%. "Good" wasn't good enough relative to expectations.</li>
+        <li><strong>Your 401k during COVID:</strong> When the first lockdowns hit in March 2020, your account dropped 30% almost overnight — markets were pricing in a massive, unknown catastrophe. By May, markets were recovering because they were now pricing in vaccines, stimulus, and recovery.</li>
+      </ul>
+    </div>
+    <div class="kp"><div class="kp-icon">💡</div><p><strong>Practical takeaway:</strong> Don't buy a stock just because you heard good news. Ask: "Was this news already expected?" If everyone knew it was coming, the price already moved. You'd be buying after the opportunity passed.</p></div>
+  </div>
+</div>
+
+<div class="ccard">
+  <div class="ccard-head"><div class="ccard-icon">📊</div><div><div class="ccard-label">Concept 02</div><div class="ccard-title">Valuation — Is a Stock Cheap or Expensive?</div></div></div>
+  <div class="ccard-body">
+    <div class="vocab-grid">
+      <div class="vocab-item">
+        <div class="vocab-term">P/E Ratio (Price-to-Earnings)</div>
+        <div class="vocab-def"><strong>Stock price ÷ annual earnings per share.</strong> A P/E of 20 means you're paying $20 for every $1 the company earns per year. S&amp;P 500 historical average: 15–18x.</div>
+      </div>
+      <div class="vocab-item">
+        <div class="vocab-term">PEG Ratio</div>
+        <div class="vocab-def"><strong>P/E ÷ earnings growth rate.</strong> Adjusts for growth. A high P/E is okay if growth is also high. PEG below 1 = potentially undervalued relative to growth.</div>
+      </div>
+      <div class="vocab-item">
+        <div class="vocab-term">EPS — Earnings Per Share</div>
+        <div class="vocab-def"><strong>Net profit ÷ shares outstanding.</strong> How much profit the company made for each share of stock. The "E" in the P/E ratio.</div>
+      </div>
+      <div class="vocab-item">
+        <div class="vocab-term">Free Cash Flow (FCF)</div>
+        <div class="vocab-def"><strong>Operating cash − capital spending.</strong> Real cash the company can actually use freely. Often more reliable than reported "earnings" because it's harder to manipulate.</div>
+      </div>
+    </div>
+    <div class="real-example">
+      <div class="real-example-label">💼 How to use P/E in real life</div>
+      <ul>
+        <li>S&amp;P 500 average P/E is 15–18x. When your <span class="account-tag">401k</span>'s target date fund holds the S&amp;P 500, that's roughly what you're paying.</li>
+        <li>AI/semiconductor stocks currently have P/E ratios around <strong>60x</strong> — meaning the market is betting heavily on future growth. If that growth doesn't materialize, those prices have a long way to fall.</li>
+        <li>A "cheap" P/E of 8x might be cheap for a reason — maybe the company is struggling. Always ask why before buying based on P/E alone.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="ccard">
+  <div class="ccard-head"><div class="ccard-icon">📰</div><div><div class="ccard-label">Concept 03</div><div class="ccard-title">Earnings Season — The Company Report Card</div></div></div>
+  <div class="ccard-body">
+    <p>Every 3 months (January, April, July, October), every public US company releases a "report card" — their financial results. This is <strong>earnings season</strong>, and markets move the most during this period.</p>
+    <div class="vocab-grid">
+      <div class="vocab-item">
+        <div class="vocab-term">Revenue (Top Line)</div>
+        <div class="vocab-def">Total sales. Did they sell more or less than expected? Think of it as "how much food the restaurant served."</div>
+      </div>
+      <div class="vocab-item">
+        <div class="vocab-term">EPS (Bottom Line)</div>
+        <div class="vocab-def">Profit per share after all expenses. Did they keep more money than expected? "How much the restaurant actually pocketed after paying rent and staff."</div>
+      </div>
+      <div class="vocab-item">
+        <div class="vocab-term">Guidance ⭐ Most Important</div>
+        <div class="vocab-def">Management's forecast for next quarter. Markets care about the FUTURE more than the past. Good guidance on a mediocre quarter → stock often goes up.</div>
+      </div>
+      <div class="vocab-item">
+        <div class="vocab-term">Beat / Miss / In-Line</div>
+        <div class="vocab-def">Beat = better than Wall Street estimated. Miss = worse. Both EPS and Revenue are measured against analyst expectations, not last year's numbers.</div>
+      </div>
+    </div>
+    <div class="kp"><div class="kp-icon">📌</div><p><strong>Why Guidance matters most:</strong> A company beats earnings but says "next quarter will be soft" — stock drops. Another company misses slightly but says "we see huge demand ahead" — stock soars. The market is always looking forward.</p></div>
+  </div>
+</div>
+
+<div class="ccard">
+  <div class="ccard-head"><div class="ccard-icon">😰</div><div><div class="ccard-label">Concept 04</div><div class="ccard-title">Market Psychology — The VIX and Fear</div></div></div>
+  <div class="ccard-body">
+    <div class="defbox">
+      <div class="defbox-term">VIX — "The Fear Index"</div>
+      <div class="defbox-body">A number derived from S&amp;P 500 options prices that measures how anxious investors are. <strong>VIX under 20:</strong> calm. <strong>20–30:</strong> nervous. <strong>30+:</strong> scared. <strong>40+:</strong> panic. During COVID (March 2020), VIX hit 82.</div>
+    </div>
+    <div class="real-example">
+      <div class="real-example-label">💼 What the VIX means for your accounts</div>
+      <ul>
+        <li>When VIX spikes, it usually means stocks are falling and people are panic-selling. Your <span class="account-tag">401k</span> balance drops — this is <em>not</em> the time to sell. History shows that buying when VIX is high (everyone is scared) produces strong returns.</li>
+        <li>Warren Buffett's rule: <strong>"Be fearful when others are greedy, and greedy when others are fearful."</strong> VIX helps you see when others are fearful.</li>
+        <li>Right now, markets have been surprisingly calm despite the Iran war and oil price surge. A low VIX during real uncertainty can mean the market is underestimating risk — something to be aware of, not act on impulsively.</li>
+      </ul>
+    </div>
+    <div class="practice">
+      <div class="practice-lbl">✏️ Today's action items</div>
+      <ul>
+        <li>Google "CNN Fear &amp; Greed Index" — where is it right now?</li>
+        <li>Look up one stock you own or are curious about — what is its P/E ratio?</li>
+        <li>Find a recent earnings headline and identify: did the stock beat or miss? Did guidance go up or down?</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- EN DAY 2 QUIZ -->
+<div class="quiz">
+  <div class="quiz-hdr"><div class="quiz-icon">🎯</div><div><div class="quiz-title">Day 2 Quiz</div><div class="quiz-sub">6 questions</div></div></div>
+
+  <div class="qblock" id="eq2a">
+    <div class="qtext"><span class="qnum">Q1.</span> Nvidia reports 20% revenue growth — impressive by any measure. But the stock falls 5% that day. What's the most likely explanation?</div>
+    <div class="opts">
+      <div class="opt" onclick="ans('eq2a','a','c')"><span class="ol">A</span> 20% is actually bad growth for a tech company</div>
+      <div class="opt" onclick="ans('eq2a','b','c')"><span class="ol">B</span> Stocks always fall after earnings announcements</div>
+      <div class="opt" onclick="ans('eq2a','c','c')"><span class="ol">C</span> Analysts expected 25%+ growth — the stock already reflected that expectation, so 20% was a "disappointment"</div>
+    </div>
+    <div class="exp" id="e_eq2a">✅ <strong>C.</strong> Markets price expectations, not absolute results. 20% is great in isolation, but if the price already reflected 25% expectations, there's a gap. Traders who bought on those high expectations sell when reality falls short. This is the "priced in" concept in action.</div>
+  </div>
+
+  <div class="qblock" id="eq2b">
+    <div class="qtext"><span class="qnum">Q2.</span> Company A has a P/E of 45. Company B has a P/E of 10. Which is the better investment?</div>
+    <div class="opts">
+      <div class="opt" onclick="ans('eq2b','a','c')"><span class="ol">A</span> Company B — it's much cheaper</div>
+      <div class="opt" onclick="ans('eq2b','b','c')"><span class="ol">B</span> Company A — more expensive usually means better quality</div>
+      <div class="opt" onclick="ans('eq2b','c','c')"><span class="ol">C</span> Impossible to say without knowing their growth rates — you need the PEG ratio</div>
+    </div>
+    <div class="exp" id="e_eq2c">✅ <strong>C.</strong> If Company A is growing earnings at 45%/year, its PEG = 1.0 (fair value). If Company B is growing at 2%/year, its PEG = 5.0 (expensive relative to growth). P/E alone is misleading — always combine it with growth rate.</div>
+  </div>
+
+  <div class="qblock" id="eq2c">
+    <div class="qtext"><span class="qnum">Q3.</span> A company beats both revenue and EPS estimates, but the stock drops 8%. What almost certainly happened?</div>
+    <div class="opts">
+      <div class="opt" onclick="ans('eq2c','a','c')"><span class="ol">A</span> There must have been a math error in the earnings report</div>
+      <div class="opt" onclick="ans('eq2c','b','c')"><span class="ol">B</span> The broader market was down that day</div>
+      <div class="opt" onclick="ans('eq2c','c','c')"><span class="ol">C</span> The company's guidance (future outlook) was weaker than expected</div>
+    </div>
+    <div class="exp" id="e_eq2c">✅ <strong>C.</strong> Great past results + bad future guidance = stock drops. The market lives in the future. A company that crushed last quarter but warns "next quarter will be tough" sends investors running. Guidance is the most important number in any earnings release.</div>
+  </div>
+
+  <div class="qblock" id="eq2d">
+    <div class="qtext"><span class="qnum">Q4.</span> The VIX spikes from 15 to 45. Your 401k balance drops 25%. What should you do?</div>
+    <div class="opts">
+      <div class="opt" onclick="ans('eq2d','a','b')"><span class="ol">A</span> Sell everything and move to cash — protect what's left</div>
+      <div class="opt" onclick="ans('eq2d','b','b')"><span class="ol">B</span> Stay the course — a VIX spike means maximum fear, which historically signals near a market bottom, not the time to panic-sell</div>
+      <div class="opt" onclick="ans('eq2d','c','b')"><span class="ol">C</span> Switch to bonds immediately</div>
+    </div>
+    <div class="exp" id="e_eq2d">✅ <strong>B.</strong> The worst thing you can do is sell when VIX is 45 — that's exactly when everyone else is panic-selling and prices are cheapest. Selling locks in your losses permanently. History shows that the people who stayed invested through COVID's 82 VIX peak recovered fully within months and then some.</div>
+  </div>
+
+  <div class="qblock" id="eq2e">
+    <div class="qtext"><span class="qnum">Q5.</span> "Free Cash Flow was negative this quarter" — what does that tell you about a company?</div>
+    <div class="opts">
+      <div class="opt" onclick="ans('eq2e','a','c')"><span class="ol">A</span> The company is going bankrupt</div>
+      <div class="opt" onclick="ans('eq2e','b','c')"><span class="ol">B</span> They didn't pay their taxes</div>
+      <div class="opt" onclick="ans('eq2e','c','c')"><span class="ol">C</span> They spent more on capital investments (data centers, factories, equipment) than they generated from operations — could be strategic growth spending or a warning sign</div>
+    </div>
+    <div class="exp" id="e_eq2e">✅ <strong>C.</strong> Negative FCF isn't automatically bad. Amazon and Microsoft are currently spending billions on AI data centers — their FCF is under pressure but it's strategic investment. The question to ask: "Is this spending creating value, or is it wasteful?" Companies with negative FCF that are investing for growth can be great investments. Companies with negative FCF because they're just burning money are risky.</div>
+  </div>
+
+  <div class="qblock" id="eq2f">
+    <div class="qtext"><span class="qnum">Q6.</span> Semiconductor stocks currently trade at P/E ratios around 60x (vs. historical average of 15–18x). What does this mean?</div>
+    <div class="opts">
+      <div class="opt" onclick="ans('eq2f','a','b')"><span class="ol">A</span> Semiconductor companies are 3–4x more profitable than average companies</div>
+      <div class="opt" onclick="ans('eq2f','b','b')"><span class="ol">B</span> Enormous future AI growth expectations are already priced in — if that growth disappoints, the correction could be severe</div>
+      <div class="opt" onclick="ans('eq2f','c','b')"><span class="ol">C</span> Semiconductor stocks are cheap by historical standards</div>
+    </div>
+    <div class="exp" id="e_eq2f">✅ <strong>B.</strong> P/E of 60 means investors are paying $60 for every $1 of current earnings, betting on massive future growth. The AI narrative has already been priced into semiconductor valuations. This week's Big Tech earnings are essentially a referendum on whether those expectations were justified.</div>
+  </div>
+
+  <button class="quiz-btn" onclick="result('ed2',6)">See Results</button>
+  <div class="quiz-res" id="r_ed2"><div class="res-score" id="sc_ed2"></div><div class="res-msg" id="ms_ed2"></div></div>
+</div>
+</div></div>
+<!-- END EN DAY 2 -->
+
+<!-- ─── EN DAY 3 ─── -->
+<div class="sec" id="en-s3" style="--dc:var(--d3)">
+<div class="hero" style="background:var(--d3)" data-n="3">
+  <div class="hero-eye">Day 3 · Rates &amp; Inflation</div>
+  <div class="hero-title">Interest Rates &amp; Inflation<br>— The Economy's Gravity</div>
+  <div class="hero-sub">The Fed, discount rates, yield curves — why these numbers affect every investment you own</div>
+  <div class="hero-q">"Why do growth stocks fall MORE than other stocks when interest rates rise?"</div>
+  <div class="hero-meta"><span class="hero-chip">⏱ 35–45 min</span><span class="hero-chip">📖 4 concepts</span><span class="hero-chip">🎯 6 quiz questions</span></div>
+</div>
+<div class="cw">
+
+<div class="sec-title">Part 1 — Inflation: Money Slowly Losing Its Power</div>
+
+<div class="ccard">
+  <div class="ccard-head"><div class="ccard-icon">📉</div><div><div class="ccard-label">Concept 01</div><div class="ccard-title">What is Inflation?</div></div></div>
+  <div class="ccard-body">
+    <div class="defbox">
+      <div class="defbox-term">Inflation</div>
+      <div class="defbox-body">The general rise in prices over time — which means your dollar buys <em>less</em> than it used to. The Fed targets <strong>2% annual inflation</strong>. Below that risks deflation (dangerous). Above that erodes purchasing power.</div>
+      <div class="defbox-formula">Real return = Nominal return − Inflation rate</div>
+    </div>
+    <div class="real-example">
+      <div class="real-example-label">💼 How inflation directly affects your money</div>
+      <ul>
+        <li><strong>Savings account reality check:</strong> Your <span class="account-tag">Brokerage</span> cash earns 4% interest. Inflation is 3.5%. Your <em>real</em> return? Only 0.5%. You're barely keeping up.</li>
+        <li><strong>Why you MUST invest:</strong> If you leave $50,000 in a savings account earning 2% while inflation runs at 4%, you're losing purchasing power every year. In 10 years, that $50k buys significantly less.</li>
+        <li><strong>Demand inflation vs Supply inflation:</strong> The Fed can fight demand inflation (too much spending) by raising rates. But the current Iran war-driven oil spike is <em>supply inflation</em> — raising rates can't produce more oil. It just slows the economy without fixing prices.</li>
+      </ul>
+    </div>
+    <div class="vocab-grid">
+      <div class="vocab-item">
+        <div class="vocab-term">CPI (Consumer Price Index)</div>
+        <div class="vocab-def">Tracks price changes of a basket of everyday goods — groceries, gas, rent, medical care. The number you see on the news. "Headline" CPI includes food &amp; energy; "Core" CPI excludes them.</div>
+      </div>
+      <div class="vocab-item">
+        <div class="vocab-term">PCE (Personal Consumption Expenditures)</div>
+        <div class="vocab-def">The Fed's preferred inflation measure. Adjusts for when consumers switch to cheaper options. Usually runs 0.2–0.5% below CPI. Released Thursday this week — markets will watch closely.</div>
+      </div>
+      <div class="vocab-item">
+        <div class="vocab-term">Stagflation</div>
+        <div class="vocab-def">The worst combination: high inflation + slow growth + high unemployment. The Fed can't fix it — raising rates helps inflation but hurts growth, lowering rates helps growth but worsens inflation. Last major episode: 1970s oil shock.</div>
+      </div>
+      <div class="vocab-item">
+        <div class="vocab-term">Real vs Nominal</div>
+        <div class="vocab-def">"Nominal" = the number on paper. "Real" = adjusted for inflation. Your nominal return might be 8%, but if inflation is 6%, your real gain is only 2%.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="sec-title">Part 2 — The Fed: America's Economic Speed Controller</div>
+
+<div class="ccard">
+  <div class="ccard-head"><div class="ccard-icon">🏛️</div><div><div class="ccard-label">Concept 02</div><div class="ccard-title">What does the Federal Reserve actually do?</div></div></div>
+  <div class="ccard-body">
+    <div class="defbox">
+      <div class="defbox-term">Federal Reserve (The Fed)</div>
+      <div class="defbox-body">America's central bank. Has two official goals (the "Dual Mandate"): ① <strong>Stable prices</strong> (target: 2% inflation) ② <strong>Maximum employment</strong>. These goals sometimes conflict, which is why Fed decisions are so difficult and closely watched.</div>
+    </div>
+    <div class="analogy">
+      <div class="analogy-lbl">🚗 Think of the Fed as a car's accelerator and brakes</div>
+      <p>Economy going too slow → <strong>lower rates</strong> (hit the gas — borrowing is cheap, people spend). Economy overheating → <strong>raise rates</strong> (hit the brakes — borrowing is expensive, people spend less). The challenge: the car takes 12–18 months to respond to the pedals.</p>
+    </div>
+    <div class="chain">
+      <span class="chain-node hi">Fed raises rates</span><span class="chain-arr">→</span>
+      <span class="chain-node">Borrowing costs more</span><span class="chain-arr">→</span>
+      <span class="chain-node">Less spending &amp; investing</span><span class="chain-arr">→</span>
+      <span class="chain-node">Economy slows</span><span class="chain-arr">→</span>
+      <span class="chain-node good">Inflation cools</span>
+    </div>
+    <div class="real-example">
+      <div class="real-example-label">💼 How the Fed affects your accounts directly</div>
+      <ul>
+        <li><strong>Your mortgage:</strong> When the Fed raises rates, your mortgage rate goes up. A 1% rate increase on a $400,000 mortgage costs you ~$250 more per month.</li>
+        <li><strong>Your 401k bond funds:</strong> When rates rise, your bond funds lose value (remember Day 1 — rates and bond prices are inverse). A year of Fed rate hikes can mean -10% to -20% on bond ETFs.</li>
+        <li><strong>Your growth stocks in Roth:</strong> Rate hikes hit growth stocks hardest (we'll explain exactly why in Concept 03).</li>
+        <li><strong>This week — Powell's possible last FOMC:</strong> If Warsh (the likely next Fed chair) prefers aggressive QT (selling bonds to shrink money supply), expect upward pressure on long-term rates.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="ccard">
+  <div class="ccard-head"><div class="ccard-icon">🧮</div><div><div class="ccard-label">Concept 03</div><div class="ccard-title">Discount Rate: Why Rising Rates Crush Growth Stocks</div></div></div>
+  <div class="ccard-body">
+    <p>This is the most mathematical concept in the course — but once you understand it, you'll never be confused by "rates up, tech stocks down" again.</p>
+    <div class="formula">
+      <div class="formula-label">Present Value Formula</div>
+      <div class="formula-eq">PV = Future Value ÷ (1 + rate)ⁿ</div>
+      <div class="formula-note">PV = what future money is worth TODAY / rate = interest rate / n = years away</div>
+    </div>
+    <div class="real-example">
+      <div class="real-example-label">💼 Concrete example: why your Roth growth stocks care about rate changes</div>
+      <ul>
+        <li>A startup promises to make $1,000 profit per share in 10 years. <strong>At 3% rates:</strong> that's worth $744 today. <strong>At 8% rates:</strong> that same $1,000 is only worth $463 today.</li>
+        <li>A rate jump from 3% → 8% just made that stock worth <strong>38% less</strong> — without the company doing anything differently.</li>
+        <li><strong>Growth stocks</strong> (AI, biotech, early-stage tech) are priced mostly on <em>future earnings</em>. Higher rates = those future earnings are worth less today = stock price drops more.</li>
+        <li><strong>Value stocks</strong> (banks, oil companies, dividend payers) earn most of their money <em>today</em>. Higher rates hurt them less because today's money doesn't need to be discounted.</li>
+        <li><strong>Practical implication for your Roth IRA:</strong> If you hold QQQ (high-growth tech ETF), rate increases are bad for you. If you also hold XLE (energy ETF), that partially offsets the damage.</li>
+      </ul>
+    </div>
+    <div class="deepdive">
+      <div class="dd-label">Yield Curve: the recession predictor</div>
+      <div class="dd-body"><strong>Normal:</strong> Long-term rates > short-term rates (riskier to lend for longer).<br>
+      <strong>Inverted:</strong> Short-term > long-term — the market is saying "the near future is scarier than the distant future" = economic trouble ahead.<br>
+      In 2022–2023, the 2-year Treasury yielded MORE than the 10-year for the longest stretch since the 1980s. Every major recession in the past 50 years was preceded by an inverted yield curve. We're watching whether this normalizes or inverts again.</div>
+    </div>
+  </div>
+</div>
+
+<div class="ccard">
+  <div class="ccard-head"><div class="ccard-icon">🎭</div><div><div class="ccard-label">Concept 04</div><div class="ccard-title">The Fed Leadership Transition: Why It Matters Now</div></div></div>
+  <div class="ccard-body">
+    <p>This isn't just politics — it directly affects every account you hold.</p>
+    <table class="ctab">
+      <tr><th></th><th>Powell (Current)</th><th>Warsh (Expected Next)</th></tr>
+      <tr><td><strong>Stance</strong></td><td>"Oil inflation is supply-driven — don't over-tighten"</td><td>Aggressive inflation fighter, QT preference</td></tr>
+      <tr><td><strong>What QT means</strong></td><td>—</td><td>Fed sells bonds → rates rise → stocks under pressure</td></tr>
+      <tr><td><strong>Impact on your Roth</strong></td><td>Growth stocks relatively protected</td><td>Growth stocks (QQQ) under pressure; value/energy better</td></tr>
+      <tr><td><strong>Independence</strong></td><td>Traditional independence</td><td>Risk: political influence from White House</td></tr>
+    </table>
+    <div class="practice">
+      <div class="practice-lbl">✏️ Today's action items</div>
+      <ul>
+        <li>Look up your Roth IRA — what % is in high-growth assets (QQQ, individual tech stocks)?</li>
+        <li>If rates rise 1% more, which of your holdings would hurt most? (Higher duration bonds + high P/E growth stocks)</li>
+        <li>Visit fred.stlouisfed.org and look at the "10-Year Treasury Constant Maturity Rate" chart</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- EN DAY 3 QUIZ -->
+<div class="quiz">
+  <div class="quiz-hdr"><div class="quiz-icon">🎯</div><div><div class="quiz-title">Day 3 Quiz</div><div class="quiz-sub">6 questions</div></div></div>
+
+  <div class="qblock" id="eq3a">
+    <div class="qtext"><span class="qnum">Q1.</span> Oil prices are surging due to the Iran war (supply disruption). The Fed wants to fight the resulting inflation by raising rates. Why is this particularly difficult?</div>
+    <div class="opts">
+      <div class="opt" onclick="ans('eq3a','a','c')"><span class="ol">A</span> The Fed isn't allowed to raise rates during wartime</div>
+      <div class="opt" onclick="ans('eq3a','b','c')"><span class="ol">B</span> Higher rates would make oil more expensive</div>
+      <div class="opt" onclick="ans('eq3a','c','c')"><span class="ol">C</span> Raising rates slows the economy but doesn't increase oil supply — you'd get stagflation: high prices AND a weak economy</div>
+    </div>
+    <div class="exp" id="e_eq3a">✅ <strong>C.</strong> Rate hikes work by reducing demand. But this inflation isn't from too much demand — it's from too little supply (blocked Strait of Hormuz). You can't drill for oil by raising rates. So you'd slow the economy AND keep prices high. That's the stagflation trap.</div>
+  </div>
+
+  <div class="qblock" id="eq3b">
+    <div class="qtext"><span class="qnum">Q2.</span> You have a right to receive $1,000 ten years from now. Rates rise from 5% to 8%. What happens to the present value of that $1,000?</div>
+    <div class="opts">
+      <div class="opt" onclick="ans('eq3b','a','b')"><span class="ol">A</span> It increases — higher rates mean money is worth more</div>
+      <div class="opt" onclick="ans('eq3b','b','b')"><span class="ol">B</span> It decreases — the higher the rate used to discount future money, the less it's worth today</div>
+      <div class="opt" onclick="ans('eq3b','c','b')"><span class="ol">C</span> It stays the same — you'll still receive $1,000</div>
+    </div>
+    <div class="exp" id="e_eq3b">✅ <strong>B.</strong> At 5%: PV = $1,000 ÷ (1.05)^10 = $614. At 8%: PV = $1,000 ÷ (1.08)^10 = $463. A 3% rate rise cut the present value by $151 — a 25% drop. This math is exactly why growth stocks (valued on future earnings) fall harder when rates rise.</div>
+  </div>
+
+  <div class="qblock" id="eq3c">
+    <div class="qtext"><span class="qnum">Q3.</span> QT (Quantitative Tightening) pushes long-term interest rates higher because:</div>
+    <div class="opts">
+      <div class="opt" onclick="ans('eq3c','a','b')"><span class="ol">A</span> QT raises taxes, which increases rates</div>
+      <div class="opt" onclick="ans('eq3c','b','b')"><span class="ol">B</span> The Fed selling bonds increases bond supply → bond prices fall → bond yields (rates) rise</div>
+      <div class="opt" onclick="ans('eq3c','c','b')"><span class="ol">C</span> QT only affects short-term rates</div>
+    </div>
+    <div class="exp" id="e_eq3c">✅ <strong>B.</strong> Remember: bond price and yield move in opposite directions. When the Fed sells bonds, supply increases → prices fall → yields (interest rates) rise. Higher long-term rates mean higher mortgage rates, more expensive corporate borrowing, and lower present value of future earnings — all headwinds for stocks.</div>
+  </div>
+
+  <div class="qblock" id="eq3d">
+    <div class="qtext"><span class="qnum">Q4.</span> The yield curve inverts (short-term rates exceed long-term rates). What has historically followed?</div>
+    <div class="opts">
+      <div class="opt" onclick="ans('eq3d','a','b')"><span class="ol">A</span> A stock market boom — short-term investments are safer and more profitable</div>
+      <div class="opt" onclick="ans('eq3d','b','b')"><span class="ol">B</span> Often a recession — the market is saying the near future is riskier than the distant future</div>
+      <div class="opt" onclick="ans('eq3d','c','b')"><span class="ol">C</span> Lower inflation — the yield curve fixes itself automatically</div>
+    </div>
+    <div class="exp" id="e_eq3d">✅ <strong>B.</strong> An inverted yield curve has preceded every major US recession in the last 50 years. It's not a guarantee — sometimes it's a false alarm. But it's the bond market's way of saying "we expect economic trouble ahead." The 2022–2023 inversion was the deepest since the 1980s.</div>
+  </div>
+
+  <div class="qblock" id="eq3e">
+    <div class="qtext"><span class="qnum">Q5.</span> The Fed's Dual Mandate is:</div>
+    <div class="opts">
+      <div class="opt" onclick="ans('eq3e','a','c')"><span class="ol">A</span> Stock market stability + trade surplus</div>
+      <div class="opt" onclick="ans('eq3e','b','c')"><span class="ol">B</span> GDP growth + balanced budget</div>
+      <div class="opt" onclick="ans('eq3e','c','c')"><span class="ol">C</span> Price stability (2% inflation target) + maximum employment</div>
+    </div>
+    <div class="exp" id="e_eq3e">✅ <strong>C.</strong> The Fed doesn't care about stock prices directly. It cares about inflation and jobs. When these two goals pull in different directions — like when inflation is high but the economy is already slowing — the Fed faces its hardest decisions. That's exactly the situation today.</div>
+  </div>
+
+  <div class="qblock" id="eq3f">
+    <div class="qtext"><span class="qnum">Q6.</span> Your Roth IRA holds QQQ (high-growth tech ETF, high P/E ratio) and XLE (energy ETF). Interest rates suddenly rise 1.5%. Which holding is more likely to be hurt, and why?</div>
+    <div class="opts">
+      <div class="opt" onclick="ans('eq3f','a','a')"><span class="ol">A</span> QQQ — it's priced on distant future earnings, which are worth much less after discounting at higher rates</div>
+      <div class="opt" onclick="ans('eq3f','b','a')"><span class="ol">B</span> XLE — energy companies are hurt most by rate increases</div>
+      <div class="opt" onclick="ans('eq3f','c','a')"><span class="ol">C</span> Both equally — rates affect all stocks the same</div>
+    </div>
+    <div class="exp" id="e_eq3f">✅ <strong>A.</strong> QQQ companies (AI, software, biotech) are valued based on earnings projected 5–10 years out. When rates rise, those future earnings are worth less today = QQQ falls harder. XLE (energy companies) actually often benefits from the same conditions that cause rate rises (inflation from oil prices). This is why diversification across both growth and value/energy is valuable.</div>
+  </div>
+
+  <button class="quiz-btn" onclick="result('ed3',6)">See Results</button>
+  <div class="quiz-res" id="r_ed3"><div class="res-score" id="sc_ed3"></div><div class="res-msg" id="ms_ed3"></div></div>
+</div>
+</div></div>
+<!-- END EN DAY 3 -->
+
+<!-- ─── EN DAYS 4-6 (condensed but complete) ─── -->
+<div class="sec" id="en-s4" style="--dc:var(--d4)">
+<div class="hero" style="background:var(--d4)" data-n="4">
+  <div class="hero-eye">Day 4 · Macro &amp; Geopolitics</div>
+  <div class="hero-title">How the World Economy<br>Affects Your Money</div>
+  <div class="hero-sub">GDP, trade, the dollar, wars — tracing the chain from global events to your Roth IRA balance</div>
+  <div class="hero-q">"How does the Iran war affect my Roth IRA balance?"</div>
+  <div class="hero-meta"><span class="hero-chip">⏱ 35–45 min</span><span class="hero-chip">📖 4 concepts</span><span class="hero-chip">🎯 6 quiz questions</span></div>
+</div>
+<div class="cw">
+
+<div class="sec-title">Part 1 — The Economic Cycle</div>
+
+<div class="ccard">
+  <div class="ccard-head"><div class="ccard-icon">🌊</div><div><div class="ccard-label">Concept 01</div><div class="ccard-title">GDP and the Business Cycle</div></div></div>
+  <div class="ccard-body">
+    <div class="defbox">
+      <div class="defbox-term">GDP — Gross Domestic Product</div>
+      <div class="defbox-body">The total value of everything produced in a country in a year. US GDP ≈ $27 trillion/year. <strong>Two consecutive quarters of shrinking GDP = official recession.</strong></div>
+    </div>
+    <div class="vocab-grid">
+      <div class="vocab-item"><div class="vocab-term">Expansion</div><div class="vocab-def">GDP growing, employment rising, corporate profits up. Stock market tends to rise. Eventually triggers inflation concerns.</div></div>
+      <div class="vocab-item"><div class="vocab-term">Recession</div><div class="vocab-def">2+ quarters of GDP decline. Unemployment rises. Fed typically cuts rates to stimulate. Bear markets common.</div></div>
+      <div class="vocab-item"><div class="vocab-term">Stagflation</div><div class="vocab-def">Inflation + economic slowdown simultaneously. The Fed's nightmare scenario — every tool hurts something. 1970s oil crisis is the textbook example.</div></div>
+      <div class="vocab-item"><div class="vocab-term">Soft Landing</div><div class="vocab-def">Taming inflation without triggering a recession. The Fed's holy grail — achieved rarely. Q1 GDP data releases Thursday; markets watching closely.</div></div>
+    </div>
+    <div class="real-example">
+      <div class="real-example-label">💼 The cycle and your accounts</div>
+      <ul>
+        <li><strong>Expansion:</strong> Your <span class="account-tag">401k</span> and <span class="account-tag">Roth IRA</span> grow. Don't get overconfident — expansions end.</li>
+        <li><strong>Recession:</strong> Your balances drop. This is the hardest time emotionally — but historically the best time to keep contributing, because you're buying at lower prices.</li>
+        <li><strong>Recovery:</strong> Biggest gains in the stock market often happen in the first 6 months after a bottom. Miss those days by sitting in cash and you miss most of the recovery.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="ccard">
+  <div class="ccard-head"><div class="ccard-icon">🌐</div><div><div class="ccard-label">Concept 02</div><div class="ccard-title">Dollar Dominance — Why the World Runs on USD</div></div></div>
+  <div class="ccard-body">
+    <div class="defbox">
+      <div class="defbox-term">Reserve Currency</div>
+      <div class="defbox-body">The currency most countries hold in their central banks and use for international trade. The US dollar is the world's primary reserve currency — ~58% of global reserves. Oil, gold, most commodities are priced in dollars.</div>
+    </div>
+    <div class="real-example">
+      <div class="real-example-label">💼 Why this matters for your investments</div>
+      <ul>
+        <li><strong>Safe haven effect:</strong> When global crises hit, investors worldwide buy dollars and US Treasuries. Your US bond funds in your <span class="account-tag">401k</span> benefit from this "flight to safety."</li>
+        <li><strong>Stablecoins expanding dollar reach:</strong> The GENIUS Act (July 2025) legalized dollar-pegged stablecoins, requiring 100% backing in US dollars or Treasuries. This means stablecoin demand = more Treasury purchases = more demand for US dollars worldwide.</li>
+        <li><strong>Strong dollar headwind for US multinationals:</strong> When Apple earns €1 billion in Europe and converts it back to dollars, a strong dollar means fewer dollars. This regularly shows up as "currency headwind" in earnings reports.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="ccard">
+  <div class="ccard-head"><div class="ccard-icon">⛽</div><div><div class="ccard-label">Concept 03</div><div class="ccard-title">Connecting Geopolitics to Your Portfolio — The Full Chain</div></div></div>
+  <div class="ccard-body">
+    <div class="chain">
+      <span class="chain-node bad">Iran War</span><span class="chain-arr">→</span>
+      <span class="chain-node bad">Hormuz Blockade</span><span class="chain-arr">→</span>
+      <span class="chain-node bad">Oil $100+</span><span class="chain-arr">→</span>
+      <span class="chain-node bad">Supply Inflation↑</span>
+    </div>
+    <div class="chain">
+      <span class="chain-node bad">Supply Inflation↑</span><span class="chain-arr">→</span>
+      <span class="chain-node bad">Rate cuts harder</span><span class="chain-arr">→</span>
+      <span class="chain-node bad">Growth stocks ↓ value</span><span class="chain-arr">→</span>
+      <span class="chain-node bad">Roth growth stocks ↓</span>
+    </div>
+    <div class="real-example">
+      <div class="real-example-label">💼 But every shock has winners too</div>
+      <ul>
+        <li><strong>XLE (Energy ETF):</strong> High oil prices = energy companies earn more = XLE goes up. If you hold XLE in your <span class="account-tag">Roth</span>, this partially offsets your QQQ losses.</li>
+        <li><strong>Defense stocks:</strong> Wars increase military spending globally. Defense ETFs (like ITA) tend to perform well.</li>
+        <li><strong>Cybersecurity:</strong> Wars increase cyber attacks. CrowdStrike, Palo Alto benefit — consider CIBR ETF.</li>
+        <li><strong>Airlines get crushed:</strong> Jet fuel is an oil derivative. Delta says +$2.5 billion extra fuel costs this quarter alone. Lufthansa cutting 20,000 flights. If you own airline stocks, this matters a lot.</li>
+      </ul>
+    </div>
+    <div class="practice">
+      <div class="practice-lbl">✏️ Today's action items</div>
+      <ul>
+        <li>What % of your portfolio is in energy? Is it zero? During inflation from oil shocks, some energy exposure helps.</li>
+        <li>Do you own any airline, travel, or consumer discretionary stocks? Review them in light of oil at $110+.</li>
+        <li>Re-read the macro report timeline — can you now trace each event through to market impact?</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- EN DAY 4 QUIZ -->
+<div class="quiz">
+  <div class="quiz-hdr"><div class="quiz-icon">🎯</div><div><div class="quiz-title">Day 4 Quiz</div><div class="quiz-sub">6 questions</div></div></div>
+  <div class="qblock" id="eq4a">
+    <div class="qtext"><span class="qnum">Q1.</span> Stagflation is particularly difficult for the Fed because:</div>
+    <div class="opts">
+      <div class="opt" onclick="ans('eq4a','a','c')"><span class="ol">A</span> The Fed isn't legally allowed to act during stagflation</div>
+      <div class="opt" onclick="ans('eq4a','b','c')"><span class="ol">B</span> Banks refuse to cooperate with the Fed during stagflation</div>
+      <div class="opt" onclick="ans('eq4a','c','c')"><span class="ol">C</span> Raising rates fights inflation but worsens the recession; cutting rates helps growth but worsens inflation — every tool hurts something</div>
+    </div>
+    <div class="exp" id="e_eq4a">✅ <strong>C.</strong> Normal toolkit: recession? Cut rates. Inflation? Raise rates. Stagflation? Both problems at once. Raising rates slows an already-struggling economy. Cutting rates pours fuel on already-hot inflation. The 1970s showed us there's no clean solution — it typically requires painful tradeoffs.</div>
+  </div>
+  <div class="qblock" id="eq4b">
+    <div class="qtext"><span class="qnum">Q2.</span> The GENIUS Act strengthens dollar hegemony by:</div>
+    <div class="opts">
+      <div class="opt" onclick="ans('eq4b','a','b')"><span class="ol">A</span> Making other currencies illegal to hold</div>
+      <div class="opt" onclick="ans('eq4b','b','b')"><span class="ol">B</span> Requiring dollar-pegged stablecoin issuers to hold US dollars or Treasuries as reserves — so growing stablecoin demand = growing Treasury demand</div>
+      <div class="opt" onclick="ans('eq4b','c','b')"><span class="ol">C</span> Banning Bitcoin in the US</div>
+    </div>
+    <div class="exp" id="e_eq4b">✅ <strong>B.</strong> This is elegant dollar policy without printing a single physical dollar. Every USDC or USDT created must be backed by a real dollar or Treasury bond. As stablecoins spread globally for payments and savings, that's effectively spreading dollar demand around the world — extending US financial influence digitally.</div>
+  </div>
+  <div class="qblock" id="eq4c">
+    <div class="qtext"><span class="qnum">Q3.</span> When the US imposes 30% tariffs on Chinese goods, who ultimately pays most of the cost?</div>
+    <div class="opts">
+      <div class="opt" onclick="ans('eq4c','a','c')"><span class="ol">A</span> Chinese companies — they have to lower their prices</div>
+      <div class="opt" onclick="ans('eq4c','b','c')"><span class="ol">B</span> The US government — it collects the tariff revenue</div>
+      <div class="opt" onclick="ans('eq4c','c','c')"><span class="ol">C</span> Mostly US consumers and businesses — importers pass the cost on through higher prices</div>
+    </div>
+    <div class="exp" id="e_eq4c">✅ <strong>C.</strong> An independent analysis estimated the current tariff regime costs the average US household an extra ~$700/year. The tariff revenue goes to the government, but the price increases come out of consumer wallets. This is why tariffs are inflationary — they act like a tax on imports that gets passed through.</div>
+  </div>
+  <div class="qblock" id="eq4d">
+    <div class="qtext"><span class="qnum">Q4.</span> Apple earns €1 billion in Europe. The dollar strengthens 10% against the euro. What happens to Apple's reported US earnings?</div>
+    <div class="opts">
+      <div class="opt" onclick="ans('eq4d','a','b')"><span class="ol">A</span> They increase — a strong dollar means Apple earns more</div>
+      <div class="opt" onclick="ans('eq4d','b','b')"><span class="ol">B</span> They decrease — €1 billion converts to fewer dollars when the dollar is strong</div>
+      <div class="opt" onclick="ans('eq4d','c','b')"><span class="ol">C</span> No change — Apple reports in euros in Europe</div>
+    </div>
+    <div class="exp" id="e_eq4d">✅ <strong>B.</strong> If €1 = $1.10 before, Apple's €1B = $1.1B. If the dollar strengthens to €1 = $1.00, the same earnings = only $1.0B. That's a $100M reduction just from currency — no change in business performance. This "FX headwind" regularly appears in Apple, Microsoft, and other multinationals' earnings calls.</div>
+  </div>
+  <div class="qblock" id="eq4e">
+    <div class="qtext"><span class="qnum">Q5.</span> The official definition of a recession is:</div>
+    <div class="opts">
+      <div class="opt" onclick="ans('eq4e','a','b')"><span class="ol">A</span> The stock market falls 20% from its peak</div>
+      <div class="opt" onclick="ans('eq4e','b','b')"><span class="ol">B</span> Two consecutive quarters of negative GDP growth</div>
+      <div class="opt" onclick="ans('eq4e','c','b')"><span class="ol">C</span> Unemployment exceeds 10%</div>
+    </div>
+    <div class="exp" id="e_eq4e">✅ <strong>B.</strong> A 20% market drop is a "bear market" — different concept. Unemployment at 10% is a consequence of recession, not the definition. Official recession = two consecutive quarters of GDP contraction, as declared by the NBER (National Bureau of Economic Research).</div>
+  </div>
+  <div class="qblock" id="eq4f">
+    <div class="qtext"><span class="qnum">Q6.</span> Oil surges to $110/barrel due to the Iran war. Which of your investments most likely BENEFITS from this?</div>
+    <div class="opts">
+      <div class="opt" onclick="ans('eq4f','a','b')"><span class="ol">A</span> QQQ (Nasdaq tech ETF) — tech companies benefit from high energy costs</div>
+      <div class="opt" onclick="ans('eq4f','b','b')"><span class="ol">B</span> XLE (Energy ETF) — oil companies earn more when oil is expensive</div>
+      <div class="opt" onclick="ans('eq4f','c','b')"><span class="ol">C</span> BND (Bond ETF) — bonds always benefit during geopolitical crises</div>
+    </div>
+    <div class="exp" id="e_eq4f">✅ <strong>B.</strong> ExxonMobil, Chevron, ConocoPhillips — all in XLE — earn dramatically more when oil is at $110 vs $80. This is why having some energy exposure is useful as a portfolio hedge. It tends to go up in exactly the scenarios (oil shocks, inflation) that hurt your other holdings.</div>
+  </div>
+  <button class="quiz-btn" onclick="result('ed4',6)">See Results</button>
+  <div class="quiz-res" id="r_ed4"><div class="res-score" id="sc_ed4"></div><div class="res-msg" id="ms_ed4"></div></div>
+</div>
+</div></div>
+<!-- END EN DAY 4 -->
+
+<!-- ─── EN DAY 5 ─── -->
+<div class="sec" id="en-s5" style="--dc:var(--d5)">
+<div class="hero" style="background:var(--d5)" data-n="5">
+  <div class="hero-eye">Day 5 · AI &amp; Tech Investing</div>
+  <div class="hero-title">AI Investing —<br>Opportunity vs Hype</div>
+  <div class="hero-sub">Bubbles vs real demand, the "pick-and-shovel" strategy, circular investment traps</div>
+  <div class="hero-q">"Should I be buying AI-related stocks? How do I evaluate them?"</div>
+  <div class="hero-meta"><span class="hero-chip">⏱ 35–45 min</span><span class="hero-chip">📖 4 concepts</span><span class="hero-chip">🎯 6 quiz questions</span></div>
+</div>
+<div class="cw">
+
+<div class="sec-title">Part 1 — The Dotcom Lesson Still Applies</div>
+
+<div class="ccard">
+  <div class="ccard-head"><div class="ccard-icon">📚</div><div><div class="ccard-label">Concept 01</div><div class="ccard-title">Real Technology ≠ Automatically Good Investment</div></div></div>
+  <div class="ccard-body">
+    <p>The internet genuinely changed the world. But if you bought Amazon in January 2000 (dotcom peak), you would have lost 95% of your money before recovering. <strong>The technology being real doesn't mean the stock price is right.</strong></p>
+    <div class="real-example">
+      <div class="real-example-label">💼 AI parallels to dotcom — what's similar and what's different</div>
+      <ul>
+        <li><strong>Similar:</strong> Real transformative technology ✓ Enormous hype ✓ Extreme valuations (P/E 60x+) ✓ IPO frenzy building ✓ "This time is different" language ✓</li>
+        <li><strong>Different:</strong> Today's AI companies have real, growing revenue (not just clicks). Infrastructure demand (power, chips) is concrete. Enterprise adoption is measurable.</li>
+        <li><strong>The risk isn't "AI is fake" — it's "AI is real but the stock prices already reflect perfection."</strong> OpenAI missing its own 2025 revenue targets (revealed this week) is the first crack in that perfect narrative.</li>
+        <li><strong>Your Roth IRA perspective:</strong> If you bought QQQ at its peak and rates rise + AI disappoints, the double hit could be significant. This is why diversification — not just within tech but across sectors — matters.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="ccard">
+  <div class="ccard-head"><div class="ccard-icon">⛏️</div><div><div class="ccard-label">Concept 02</div><div class="ccard-title">The "Pick-and-Shovel" Strategy</div></div></div>
+  <div class="ccard-body">
+    <div class="analogy">
+      <div class="analogy-lbl">⛏️ The 1849 California Gold Rush</div>
+      <p>Most gold miners went broke or broke even. But the people who sold <strong>shovels, pickaxes, blue jeans (Levi's), and food</strong> to the miners made consistent money — regardless of who struck gold. Apply this to AI.</p>
+    </div>
+    <table class="ctab">
+      <tr><th>AI's "Picks and Shovels"</th><th>Why it's more certain</th><th>How to invest</th></tr>
+      <tr><td><strong>Power infrastructure</strong></td><td>Every AI data center needs electricity. Period.</td><td>Utility ETFs, GRID ETF</td></tr>
+      <tr><td><strong>Semiconductor equipment</strong></td><td>Can't make chips without ASML's machines. ASML has a monopoly on EUV lithography.</td><td>ASML, SOXX ETF</td></tr>
+      <tr><td><strong>Cybersecurity</strong></td><td>AI makes attacks more sophisticated AND makes defense more important.</td><td>CrowdStrike, CIBR ETF</td></tr>
+      <tr><td><strong>Advanced packaging</strong></td><td>Connecting multiple chips together — Intel is one of only 3 companies in the world that can do this at scale.</td><td>Intel, TSMC</td></tr>
+    </table>
+    <div class="real-example">
+      <div class="real-example-label">💼 Intel's Q1 2026 blowout — the pick-and-shovel thesis confirmed</div>
+      <ul>
+        <li>Intel reported revenue of $13.6B (+7.2%), EPS of $0.29 vs estimate of $0.01 — <strong>29x the expected profit</strong>.</li>
+        <li>The reason: AI is shifting from "training" (GPU-heavy) to "inference and agents" (CPU-heavy). Intel's data center division jumped 22%.</li>
+        <li>If you held Intel in your <span class="account-tag">Roth IRA</span>, you gained 23.6% in a single day — the stock's best performance since 1987.</li>
+        <li>This is the pick-and-shovel strategy working: you didn't need to pick OpenAI vs Anthropic vs Google. You just needed to know that AI agents need CPUs.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="ccard">
+  <div class="ccard-head"><div class="ccard-icon">🔄</div><div><div class="ccard-label">Concept 03</div><div class="ccard-title">Circular Financing — When AI Revenue Isn't "Real"</div></div></div>
+  <div class="ccard-body">
+    <div class="defbox">
+      <div class="defbox-term">Circular Investment Structure</div>
+      <div class="defbox-body">When company A invests in company B, and B spends that money back with A. The result looks like growing revenue for A — but it's not external demand. It's money going in a circle.</div>
+    </div>
+    <div class="example">
+      <div class="example-lbl">The Big Tech AI loop</div>
+      <ul>
+        <li>Amazon invests billions in Anthropic → Anthropic uses Amazon's money to rent AWS (Amazon's cloud) → AWS revenue rises → Amazon looks like AI is boosting cloud demand</li>
+        <li>Microsoft invested $13B in OpenAI → OpenAI runs on Azure (Microsoft's cloud) → Azure AI revenue climbs → Microsoft stock rises on "AI momentum"</li>
+        <li>Google investing up to $40B in Anthropic (announced this week) → Same circular structure</li>
+        <li><strong>The test:</strong> Is revenue coming from OUTSIDE this loop? Independent companies paying for AI services because they're genuinely valuable? That's real demand. Money just circling between big tech investing in their own customers is not.</li>
+      </ul>
+    </div>
+    <div class="kp"><div class="kp-icon">⚠️</div><p><strong>This week's OpenAI revenue miss is significant:</strong> OpenAI missed its own 2025 user and revenue targets. Its CFO warned the IPO might not happen this year. If the company that received $122 billion in funding can't hit revenue targets — despite the massive circular investments supporting it — that's a real signal about AI monetization timelines.</p></div>
+  </div>
+</div>
+
+<div class="ccard">
+  <div class="ccard-head"><div class="ccard-icon">📦</div><div><div class="ccard-label">Concept 04</div><div class="ccard-title">How to Build AI Exposure Without Picking Winners</div></div></div>
+  <div class="ccard-body">
+    <table class="ctab">
+      <tr><th>ETF</th><th>What it holds</th><th>AI exposure type</th></tr>
+      <tr><td><strong>QQQ</strong></td><td>Nasdaq 100</td><td>Direct but concentrated — if AI disappoints broadly, QQQ takes the hit</td></tr>
+      <tr><td><strong>SOXX</strong></td><td>Semiconductor companies</td><td>Infrastructure layer — Intel, Nvidia, AMD, ASML</td></tr>
+      <tr><td><strong>CIBR</strong></td><td>Cybersecurity</td><td>AI-era necessity — grows with AI adoption</td></tr>
+      <tr><td><strong>VTI</strong></td><td>All US stocks</td><td>Broadest exposure — AI wins are included but diluted by everything else</td></tr>
+    </table>
+    <div class="practice">
+      <div class="practice-lbl">✏️ Today's action items</div>
+      <ul>
+        <li>What % of your Roth is in pure "AI narrative" stocks vs AI infrastructure?</li>
+        <li>Look up your QQQ holdings — what are its top 10 holdings?</li>
+        <li>Consider: if AI monetization is 2–3 years away from matching investment levels, is your AI exposure sized appropriately?</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- EN DAY 5 QUIZ -->
+<div class="quiz">
+  <div class="quiz-hdr"><div class="quiz-icon">🎯</div><div><div class="quiz-title">Day 5 Quiz</div><div class="quiz-sub">6 questions</div></div></div>
+  <div class="qblock" id="eq5a">
+    <div class="qtext"><span class="qnum">Q1.</span> Amazon in January 2000 was a great company with real technology. Buying it then would have resulted in a 95% loss before recovery. What's the core lesson?</div>
+    <div class="opts">
+      <div class="opt" onclick="ans('eq5a','a','c')"><span class="ol">A</span> Tech stocks are always too risky to own</div>
+      <div class="opt" onclick="ans('eq5a','b','c')"><span class="ol">B</span> Amazon was secretly a bad company in 2000</div>
+      <div class="opt" onclick="ans('eq5a','c','c')"><span class="ol">C</span> Even real, transformative technology can be a terrible investment if the valuation already prices in perfection</div>
+    </div>
+    <div class="exp" id="e_eq5a">✅ <strong>C.</strong> Amazon at dotcom peak was priced for flawless execution decades into the future. When reality was merely "excellent" instead of "perfect," the stock collapsed. Today's AI stocks with P/E ratios of 60-100x carry the same risk — not that AI won't work, but that current prices require everything to go right.</div>
+  </div>
+  <div class="qblock" id="eq5b">
+    <div class="qtext"><span class="qnum">Q2.</span> Intel's Q1 2026 earnings beat expectations by 29x. The "pick-and-shovel" thesis was that:</div>
+    <div class="opts">
+      <div class="opt" onclick="ans('eq5b','a','b')"><span class="ol">A</span> Intel was building better GPUs than Nvidia</div>
+      <div class="opt" onclick="ans('eq5b','b','b')"><span class="ol">B</span> AI shifting to the "inference and agents" phase would dramatically increase CPU demand, regardless of which AI company wins</div>
+      <div class="opt" onclick="ans('eq5b','c','b')"><span class="ol">C</span> Intel's phone chips were gaining market share</div>
+    </div>
+    <div class="exp" id="e_eq5b">✅ <strong>B.</strong> The elegant pick-and-shovel insight: AI training requires massive GPU clusters, but AI inference (actually running the model to answer questions) and especially AI agents (multi-step autonomous tasks) use CPU-heavy workloads. Intel makes CPUs. You didn't need to pick OpenAI vs Google vs Anthropic — you just needed to see this structural shift.</div>
+  </div>
+  <div class="qblock" id="eq5c">
+    <div class="qtext"><span class="qnum">Q3.</span> Amazon invests $10B in Anthropic. Anthropic uses $8B of it to rent AWS (Amazon's cloud). Amazon's cloud revenue rises $8B. Is this $8B increase "real" AI demand?</div>
+    <div class="opts">
+      <div class="opt" onclick="ans('eq5c','a','b')"><span class="ol">A</span> Yes — revenue is revenue regardless of the source</div>
+      <div class="opt" onclick="ans('eq5c','b','b')"><span class="ol">B</span> Partially — it's real revenue but it's circular. The same $8B flowed out and came back. It's not independent external demand for cloud services.</div>
+      <div class="opt" onclick="ans('eq5c','c','b')"><span class="ol">C</span> No — none of it counts as real revenue</div>
+    </div>
+    <div class="exp" id="e_eq5c">✅ <strong>B.</strong> The revenue is technically real — it appears on the income statement. But it inflates the appearance of AI demand growth. True signal of AI monetization is revenue from OUTSIDE this loop: independent businesses paying for AI services because they're valuable, not because they received investment money to spend back on their investor's platform.</div>
+  </div>
+  <div class="qblock" id="eq5d">
+    <div class="qtext"><span class="qnum">Q4.</span> You can't predict whether OpenAI, Anthropic, or Google will "win" AI. The smartest diversified approach is:</div>
+    <div class="opts">
+      <div class="opt" onclick="ans('eq5d','a','c')"><span class="ol">A</span> Put everything in the biggest AI company (Microsoft)</div>
+      <div class="opt" onclick="ans('eq5d','b','c')"><span class="ol">B</span> Avoid AI entirely until a winner is clear</div>
+      <div class="opt" onclick="ans('eq5d','c','c')"><span class="ol">C</span> Invest in infrastructure that all AI players need — power, chips, cybersecurity — via sector ETFs</div>
+    </div>
+    <div class="exp" id="e_eq5d">✅ <strong>C.</strong> This is the pick-and-shovel strategy at the portfolio level. SOXX (semiconductor equipment), a power infrastructure ETF, and CIBR (cybersecurity) all benefit from AI expansion regardless of which software layer wins. You're owning the foundation of the AI economy rather than betting on who builds the tallest skyscraper on top of it.</div>
+  </div>
+  <div class="qblock" id="eq5e">
+    <div class="qtext"><span class="qnum">Q5.</span> Microsoft Copilot has 15 million paid seats out of 450 million M365 subscribers — about 3.3%. What does this signal?</div>
+    <div class="opts">
+      <div class="opt" onclick="ans('eq5e','a','b')"><span class="ol">A</span> Microsoft's AI investment has completely failed</div>
+      <div class="opt" onclick="ans('eq5e','b','b')"><span class="ol">B</span> There's massive upside potential, but also a gap between the billions spent on AI infrastructure and actual revenue generated so far</div>
+      <div class="opt" onclick="ans('eq5e','c','b')"><span class="ol">C</span> 3.3% penetration means AI is already mainstream</div>
+    </div>
+    <div class="exp" id="e_eq5e">✅ <strong>B.</strong> This is the AI monetization gap in numbers. Microsoft has invested tens of billions and 3.3% of users are paying for the AI features. That's $10–15 billion of Copilot revenue annually — real money, but much less than the $50+ billion they're spending on infrastructure. The question for every big tech company is: when does this ratio flip?</div>
+  </div>
+  <div class="qblock" id="eq5f">
+    <div class="qtext"><span class="qnum">Q6.</span> Power infrastructure is called "the most certain AI investment theme" because:</div>
+    <div class="opts">
+      <div class="opt" onclick="ans('eq5f','a','b')"><span class="ol">A</span> Utility companies are building AI themselves</div>
+      <div class="opt" onclick="ans('eq5f','b','b')"><span class="ol">B</span> No matter which AI companies win, and even if there's a major AI pullback, electricity demand keeps growing from EVs, manufacturing, and data centers</div>
+      <div class="opt" onclick="ans('eq5f','c','b')"><span class="ol">C</span> Power companies are currently undervalued</div>
+    </div>
+    <div class="exp" id="e_eq5f">✅ <strong>B.</strong> The IEA projects an additional 1,000 TWh of power demand per year through 2035 — equivalent to adding Japan's entire electrical grid every year. Even in a scenario where AI hype collapses, EVs + manufacturing reshoring + data centers maintain that demand. It's the most direction-agnostic way to benefit from the technology transition.</div>
+  </div>
+  <button class="quiz-btn" onclick="result('ed5',6)">See Results</button>
+  <div class="quiz-res" id="r_ed5"><div class="res-score" id="sc_ed5"></div><div class="res-msg" id="ms_ed5"></div></div>
+</div>
+</div></div>
+<!-- END EN DAY 5 -->
+
+<!-- ─── EN DAY 6 ─── -->
+<div class="sec" id="en-s6" style="--dc:var(--d6)">
+<div class="hero" style="background:var(--d6)" data-n="6">
+  <div class="hero-eye">Day 6 · Portfolio Design</div>
+  <div class="hero-title">Designing Your Portfolio<br>— Putting It All Together</div>
+  <div class="hero-sub">Asset allocation, rebalancing, your Investment Policy Statement — applying everything to your real accounts</div>
+  <div class="hero-q">"Is my portfolio well-designed? What should I change?"</div>
+  <div class="hero-meta"><span class="hero-chip">⏱ 35–45 min</span><span class="hero-chip">📖 4 concepts</span><span class="hero-chip">🎯 6 quiz questions</span></div>
+</div>
+<div class="cw">
+
+<div class="sec-title">Part 1 — Asset Allocation: The Most Important Decision</div>
+
+<div class="ccard">
+  <div class="ccard-head"><div class="ccard-icon">🎯</div><div><div class="ccard-label">Concept 01</div><div class="ccard-title">Asset Allocation — 90% of Your Returns Come From This</div></div></div>
+  <div class="ccard-body">
+    <p>Research shows that roughly 90% of long-term portfolio returns are determined not by which stocks you pick, but by <strong>how much you allocate to stocks vs. bonds vs. cash</strong>.</p>
+    <table class="ctab">
+      <tr><th>Situation</th><th>Stocks</th><th>Bonds</th><th>Cash</th><th>Why</th></tr>
+      <tr><td><strong>20s–30s, retirement investing</strong></td><td><span class="tag-g">80–100%</span></td><td>0–10%</td><td>0–5%</td><td>30–40 years to recover from any crash</td></tr>
+      <tr><td><strong>40s–50s</strong></td><td>60–80%</td><td>15–30%</td><td>5–10%</td><td>Balancing growth and protection</td></tr>
+      <tr><td><strong>60s and beyond</strong></td><td>40–60%</td><td>30–40%</td><td>10–15%</td><td>Protecting what you've built</td></tr>
+      <tr><td><strong>Money needed in 3 years</strong></td><td>0–30%</td><td>30–40%</td><td>30–50%</td><td>Can't afford a crash to destroy it</td></tr>
+    </table>
+    <div class="real-example">
+      <div class="real-example-label">💼 Why time horizon determines your stock allocation</div>
+      <ul>
+        <li>The S&amp;P 500 has never had a negative return over any 20-year period in history. In 1 year, it can fall 50%. But over 20 years — always positive.</li>
+        <li>If you're 35 and retire at 65, you have 30 years. A 40% crash in your <span class="account-tag">Roth IRA</span> this year? Irrelevant. You have three decades to recover and grow.</li>
+        <li>If you're 63 and retire at 65, a 40% crash is catastrophic — you have 2 years to recover. This is why reducing stock exposure as you approach retirement is called <strong>a "glide path"</strong> (what target-date funds in your <span class="account-tag">401k</span> do automatically).</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="ccard">
+  <div class="ccard-head"><div class="ccard-icon">🔄</div><div><div class="ccard-label">Concept 02</div><div class="ccard-title">Rebalancing — Automatically Selling High and Buying Low</div></div></div>
+  <div class="ccard-body">
+    <div class="defbox">
+      <div class="defbox-term">Rebalancing</div>
+      <div class="defbox-body">When your target allocation drifts (because some assets rose and others fell), you sell some of the winners and buy more of the laggards to restore your original percentages.</div>
+    </div>
+    <div class="real-example">
+      <div class="real-example-label">💼 Rebalancing in action with your accounts</div>
+      <ul>
+        <li><strong>Scenario:</strong> Your <span class="account-tag">Roth IRA</span> target: 80% stocks, 20% bonds. Stocks rally — now 90% stocks, 10% bonds.</li>
+        <li><strong>What you do:</strong> Sell some stocks, buy some bonds. You're literally selling what went up and buying what went down.</li>
+        <li><strong>Result:</strong> You've automatically implemented "buy low, sell high" without any guesswork.</li>
+        <li><strong>Best place to rebalance:</strong> Your <span class="account-tag">Roth IRA</span> — selling within a Roth has zero tax consequences. Rebalancing in a <span class="account-tag">Brokerage</span> triggers capital gains taxes, so do it carefully there (prefer using new contributions to rebalance instead of selling).</li>
+        <li><strong>How often:</strong> Once a year, or when any asset class drifts more than 5% from target.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="ccard">
+  <div class="ccard-head"><div class="ccard-icon">🌐</div><div><div class="ccard-label">Concept 03</div><div class="ccard-title">Current Environment → Portfolio Implications (April 2026)</div></div></div>
+  <div class="ccard-body">
+    <table class="ctab">
+      <tr><th>Current situation</th><th>Affected assets</th><th>Portfolio implication</th></tr>
+      <tr><td><strong>High oil + supply inflation</strong></td><td>Growth stocks ↓, Energy ↑</td><td>Small energy ETF allocation (3–5%) as inflation hedge</td></tr>
+      <tr><td><strong>Warsh/QT risk</strong></td><td>Long-duration bonds ↓</td><td>Avoid heavy long-term bond ETF (TLT) exposure</td></tr>
+      <tr><td><strong>AI valuation concern (P/E 60x)</strong></td><td>High-P/E tech stocks at risk</td><td>Balance QQQ with SOXX (infra) + VTI (broad)</td></tr>
+      <tr><td><strong>SOX 18-day rally (+47%)</strong></td><td>Semiconductor overextension</td><td>Consider profit-taking and rebalancing</td></tr>
+      <tr><td><strong>Iran war extended</strong></td><td>Airlines, travel, consumer hit</td><td>Review any airline/travel exposure</td></tr>
+    </table>
+    <div class="kp"><div class="kp-icon">📌</div><p><strong>The most important rule right now:</strong> Don't trade on headlines. Studies show that investors who react to news by changing their portfolio earn significantly less than those who stay disciplined. This week has major events (Big Tech earnings, FOMC, GDP). Watch them to understand — not to make reactive trades.</p></div>
+  </div>
+</div>
+
+<div class="ccard">
+  <div class="ccard-head"><div class="ccard-icon">📝</div><div><div class="ccard-label">Concept 04</div><div class="ccard-title">Your Investment Policy Statement (IPS)</div></div></div>
+  <div class="ccard-body">
+    <div class="defbox">
+      <div class="defbox-term">Investment Policy Statement (IPS)</div>
+      <div class="defbox-body">A one-page written document that defines your investing rules, goals, and limits — written during calm times so you can follow it during panics. Your personal financial constitution.</div>
+    </div>
+    <div class="analogy">
+      <div class="analogy-lbl">✈️ Think of it as your investment autopilot</div>
+      <p>A pilot who panics in turbulence and ignores their training causes crashes. An IPS means that when the market drops 30% and every emotion screams "SELL," you have a pre-written rule that says "stay the course" or even "buy more." The rule was written by your rational self — don't let your panicked self override it.</p>
+    </div>
+    <div class="practice">
+      <div class="practice-lbl">✏️ Write your IPS today — template</div>
+      <ul>
+        <li><strong>① Goal:</strong> Retire by age ___ with $___. (e.g., "Retire at 60 with $2M")</li>
+        <li><strong>② Risk tolerance:</strong> "I can hold through a 30% drop without selling" — is that true for you?</li>
+        <li><strong>③ Target allocation:</strong> Stocks ___% / Bonds ___% / Cash ___%</li>
+        <li><strong>④ Roth IRA:</strong> "I hold ___ (e.g., 70% QQQ, 30% VTI)" — growth focus</li>
+        <li><strong>⑤ 401k:</strong> "I hold target-date fund 2050" or "___% stock index, ___% bonds"</li>
+        <li><strong>⑥ Brokerage:</strong> "I hold VTI and VTI only for simplicity"</li>
+        <li><strong>⑦ Rebalancing rule:</strong> "Every January, or when any asset drifts 5%+ from target"</li>
+        <li><strong>⑧ Never-do list:</strong> "Never sell in a panic. Never put more than 5% in a single stock. Never trade based on news the same day."</li>
+      </ul>
+    </div>
+    <div class="deepdive">
+      <div class="dd-label">Why wealthy people rarely sell — the tax deferral compounding secret</div>
+      <div class="dd-body">Selling = triggering taxes. Not selling = deferring taxes. That deferred tax money keeps compounding for you.<br>
+      $100,000 invested at 8%/year, 20% capital gains tax:<br>
+      • Sell and reinvest every year (pay taxes annually): 30 years → ~<strong>$744,000</strong><br>
+      • Buy and hold until the end (defer taxes): 30 years → ~<strong>$873,000</strong><br>
+      Difference: $129,000 — just from <em>when</em> you pay the tax, not how much. This is a core Buffett strategy.</div>
+    </div>
+  </div>
+</div>
+
+<!-- EN DAY 6 QUIZ -->
+<div class="quiz">
+  <div class="quiz-hdr"><div class="quiz-icon">🏆</div><div><div class="quiz-title">Day 6 Final Quiz</div><div class="quiz-sub">6 questions · 6-day completion!</div></div></div>
+  <div class="qblock" id="eq6a">
+    <div class="qtext"><span class="qnum">Q1.</span> Research shows ~90% of long-term portfolio returns are determined by:</div>
+    <div class="opts">
+      <div class="opt" onclick="ans('eq6a','a','b')"><span class="ol">A</span> Which individual stocks you pick</div>
+      <div class="opt" onclick="ans('eq6a','b','b')"><span class="ol">B</span> Your asset allocation — how much you put in stocks vs. bonds vs. cash</div>
+      <div class="opt" onclick="ans('eq6a','c','b')"><span class="ol">C</span> Your market timing — when you buy and sell</div>
+    </div>
+    <div class="exp" id="e_eq6a">✅ <strong>B.</strong> The Brinson, Hood, Beebower study (1986, replicated many times) found that asset allocation explains ~90% of portfolio return variance. Stock picking and timing explained only the remaining 10%. This is why focusing on the right stocks-to-bonds ratio matters far more than obsessing over individual company selection.</div>
+  </div>
+  <div class="qblock" id="eq6b">
+    <div class="qtext"><span class="qnum">Q2.</span> In today's environment (rates uncertain, QT risk, oil at $110), what bond strategy makes more sense?</div>
+    <div class="opts">
+      <div class="opt" onclick="ans('eq6b','a','b')"><span class="ol">A</span> Load up on TLT (20+ year Treasury ETF, duration ~17)</div>
+      <div class="opt" onclick="ans('eq6b','b','b')"><span class="ol">B</span> Favor short-duration bonds (BIL, SHY) — less sensitivity to rate changes</div>
+      <div class="opt" onclick="ans('eq6b','c','b')"><span class="ol">C</span> Bonds are all equivalent — duration doesn't matter</div>
+    </div>
+    <div class="exp" id="e_eq6b">✅ <strong>B.</strong> With QT risk and Warsh potentially pushing rates higher, long-duration bonds (TLT duration ~17) could lose 17%+ if rates rise 1%. Short-duration bonds (BIL has duration under 0.5) are barely affected by rate changes. When the rate outlook is uncertain, keep your bond duration short.</div>
+  </div>
+  <div class="qblock" id="eq6c">
+    <div class="qtext"><span class="qnum">Q3.</span> Why is rebalancing inside your Roth IRA better than rebalancing inside your Brokerage account?</div>
+    <div class="opts">
+      <div class="opt" onclick="ans('eq6c','a','a')"><span class="ol">A</span> Selling inside a Roth triggers no taxes — you can rebalance freely without a tax consequence</div>
+      <div class="opt" onclick="ans('eq6c','b','a')"><span class="ol">B</span> Roth accounts have better investment options</div>
+      <div class="opt" onclick="ans('eq6c','c','a')"><span class="ol">C</span> Roth accounts charge lower trading fees</div>
+    </div>
+    <div class="exp" id="e_eq6c">✅ <strong>A.</strong> In a Brokerage, selling appreciated assets triggers capital gains tax (15–20%). In a Roth, all transactions are tax-free. This means you can rebalance quarterly, move from one ETF to another, take profits — all without any tax consequence. It's one of the most underappreciated features of the Roth IRA.</div>
+  </div>
+  <div class="qblock" id="eq6d">
+    <div class="qtext"><span class="qnum">Q4.</span> Watching this week's Big Tech earnings + FOMC + GDP data, what's the right investor response?</div>
+    <div class="opts">
+      <div class="opt" onclick="ans('eq6d','a','c')"><span class="ol">A</span> Trade actively based on each announcement to maximize returns</div>
+      <div class="opt" onclick="ans('eq6d','b','c')"><span class="ol">B</span> Ignore all of it — news never matters for long-term investors</div>
+      <div class="opt" onclick="ans('eq6d','c','c')"><span class="ol">C</span> Watch and learn to understand the information better — but don't make reactive trades. Update your mental model, not your portfolio.</div>
+    </div>
+    <div class="exp" id="e_eq6d">✅ <strong>C.</strong> Studies consistently show that the more actively investors trade on news, the worse their returns. You're going through this course precisely to understand these events intellectually — but that understanding should inform your strategic thinking over months and years, not trigger same-day trades. The time to adjust your portfolio is during calm planning sessions, not in the middle of major market events.</div>
+  </div>
+  <div class="qblock" id="eq6e">
+    <div class="qtext"><span class="qnum">Q5.</span> The main purpose of an Investment Policy Statement (IPS) is:</div>
+    <div class="opts">
+      <div class="opt" onclick="ans('eq6e','a','b')"><span class="ol">A</span> A legal document required by the SEC for individual investors</div>
+      <div class="opt" onclick="ans('eq6e','b','b')"><span class="ol">B</span> Rules written during calm times so your rational self constrains your emotional self during crashes or manias</div>
+      <div class="opt" onclick="ans('eq6e','c','b')"><span class="ol">C</span> A performance guarantee for your investments</div>
+    </div>
+    <div class="exp" id="e_eq6e">✅ <strong>B.</strong> Panic-selling at bottoms and FOMO-buying at tops are the two biggest destroyers of investor returns. An IPS says: "When the market drops 30%, I will NOT sell — I will either hold or buy more." Writing this when calm means you have a rule to follow when panic hits, rather than making decisions under emotional duress.</div>
+  </div>
+  <div class="qblock" id="eq6f">
+    <div class="qtext"><span class="qnum">Q6.</span> Final comprehensive question — which of these statements is FALSE?</div>
+    <div class="opts">
+      <div class="opt" onclick="ans('eq6f','a','b')"><span class="ol">A</span> Bond prices and interest rates move in opposite directions (Day 1)</div>
+      <div class="opt" onclick="ans('eq6f','b','b')"><span class="ol">B</span> Rising interest rates increase the present value of future earnings, helping growth stocks (Day 3) — FALSE</div>
+      <div class="opt" onclick="ans('eq6f','c','b')"><span class="ol">C</span> An inverted yield curve has historically preceded recessions (Day 3)</div>
+    </div>
+    <div class="exp" id="e_eq6f">✅ <strong>B is the false statement!</strong> Rising interest rates DECREASE the present value of future earnings (PV = FV ÷ (1+r)^n — a bigger denominator means smaller present value). This is why growth stocks fall hardest when rates rise. Congratulations on completing all 6 days! 🎉</div>
+  </div>
+  <button class="quiz-btn" onclick="result('ed6',6)">Final Results!</button>
+  <div class="quiz-res" id="r_ed6"><div class="res-score" id="sc_ed6"></div><div class="res-msg" id="ms_ed6"></div></div>
+</div>
+
+<div style="margin-top:28px;background:var(--ink);color:white;padding:24px 26px;border-radius:10px;text-align:center;">
+  <div style="font-size:28px;margin-bottom:10px;">🎓</div>
+  <div style="font-family:'DM Serif Display',serif;font-size:22px;margin-bottom:8px;">6 Days Complete!</div>
+  <div style="font-size:13.5px;color:#a1a1aa;line-height:1.75;max-width:520px;margin:0 auto;">
+    You now understand stocks, bonds, ETFs, interest rates, inflation, global macro, AI investing, and portfolio design — and how they all connect to your Roth IRA, 401k, and brokerage. Go read the macro report timeline again. See how differently it reads.
+  </div>
+</div>
+</div></div>
+<!-- END EN DAY 6 -->
+
+<!-- ─── EN GLOSSARY ─── -->
+<div class="sec" id="en-s7" style="--dc:var(--dg)">
+<div class="hero" style="background:#374151" data-n="G">
+  <div class="hero-eye">Reference · Glossary</div>
+  <div class="hero-title">Financial Terms<br>Dictionary</div>
+  <div class="hero-sub">Every term used across all 6 days — searchable, with plain-English definitions and real account examples</div>
+</div>
+<div class="cw">
+  <input class="glossary-search" id="en-gloss-search" type="text" placeholder="Search terms... (e.g. 'Roth', 'inflation', 'ETF')" oninput="filterGlossary('en')">
+  <div class="glossary-grid" id="en-glossary">
+
+    <div class="glossary-item" data-terms="roth ira account tax retirement">
+      <div class="glossary-term">Roth IRA</div>
+      <span class="glossary-cat cat-account">Account</span>
+      <div class="glossary-def">An individual retirement account funded with <strong>after-tax money</strong>. All growth and withdrawals after age 59½ are completely tax-free. Annual contribution limit: $7,000 (2024).</div>
+      <div class="glossary-example">💡 Best for: high-growth assets like QQQ or individual tech stocks — the bigger your gains grow, the more tax-free money you pocket at retirement.</div>
+    </div>
+
+    <div class="glossary-item" data-terms="401k account employer tax retirement">
+      <div class="glossary-term">401(k)</div>
+      <span class="glossary-cat cat-account">Account</span>
+      <div class="glossary-def">Employer-sponsored retirement account funded with <strong>pre-tax money</strong> (Traditional) or after-tax (Roth 401k). Contributions reduce your taxable income today, but withdrawals in retirement are taxed. Limit: $23,000/year (2024).</div>
+      <div class="glossary-example">💡 If your employer matches contributions, that's free money — always contribute at least enough to get the full match.</div>
+    </div>
+
+    <div class="glossary-item" data-terms="brokerage account taxable investing">
+      <div class="glossary-term">Taxable Brokerage Account</div>
+      <span class="glossary-cat cat-account">Account</span>
+      <div class="glossary-def">A standard investment account with no tax advantages but no restrictions. You pay taxes on dividends as received and capital gains when you sell. No contribution limits, no withdrawal rules.</div>
+      <div class="glossary-example">💡 Best for: index ETFs like VTI (naturally tax-efficient), money you might need before retirement, or investing beyond IRA/401k limits.</div>
+    </div>
+
+    <div class="glossary-item" data-terms="traditional ira account pretax retirement">
+      <div class="glossary-term">Traditional IRA</div>
+      <span class="glossary-cat cat-account">Account</span>
+      <div class="glossary-def">Individual retirement account funded with <strong>pre-tax money</strong> — contributions may be tax-deductible. Withdrawals in retirement are taxed as ordinary income. Required minimum distributions start at age 73.</div>
+      <div class="glossary-example">💡 Makes sense if you expect to be in a lower tax bracket in retirement than you are now. Roth IRA is better if you expect to be in the same or higher bracket.</div>
+    </div>
+
+    <div class="glossary-item" data-terms="stock share equity ownership company">
+      <div class="glossary-term">Stock (Share / Equity)</div>
+      <span class="glossary-cat cat-investment">Investment</span>
+      <div class="glossary-def">A unit of ownership in a company. Buying stock makes you a partial owner. You profit if the company grows (price appreciation) or distributes earnings (dividends). Risk: you can lose everything if the company fails.</div>
+      <div class="glossary-example">💡 1 share of Apple ≈ $200. You own a tiny piece of one of the world's most valuable companies. If Apple doubles, your share doubles.</div>
+    </div>
+
+    <div class="glossary-item" data-terms="bond fixed income loan government corporate interest">
+      <div class="glossary-term">Bond (Fixed Income)</div>
+      <span class="glossary-cat cat-investment">Investment</span>
+      <div class="glossary-def">A loan you make to a government or corporation in exchange for regular interest payments and return of principal at maturity. Safer than stocks; lower return.</div>
+      <div class="glossary-example">💡 US 10-year Treasury bond at 4.3%: lend $10,000 to the US government, receive $430/year for 10 years, get $10,000 back at the end.</div>
+    </div>
+
+    <div class="glossary-item" data-terms="etf fund index diversified portfolio vti voo qqq">
+      <div class="glossary-term">ETF (Exchange Traded Fund)</div>
+      <span class="glossary-cat cat-investment">Investment</span>
+      <div class="glossary-def">A basket of hundreds or thousands of stocks/bonds packaged into a single tradeable security. Provides instant diversification. Index ETFs track a market index automatically with minimal fees.</div>
+      <div class="glossary-example">💡 VTI = one purchase = you own proportional shares of ~4,000 US companies. One Apple problem barely affects you.</div>
+    </div>
+
+    <div class="glossary-item" data-terms="expense ratio fee cost fund etf annual">
+      <div class="glossary-term">Expense Ratio</div>
+      <span class="glossary-cat cat-investment">Investment</span>
+      <div class="glossary-def">The annual fee an ETF or mutual fund charges, expressed as a percentage of assets. VTI charges 0.03% (meaning $3/year on a $10,000 investment). Active funds often charge 1%+.</div>
+      <div class="glossary-example">💡 The difference between 0.03% and 1% costs you ~$160,000 over 30 years on a $100,000 investment due to compound interest. Always check before buying a fund.</div>
+    </div>
+
+    <div class="glossary-item" data-terms="dividend income yield payment quarterly">
+      <div class="glossary-term">Dividend</div>
+      <span class="glossary-cat cat-investment">Investment</span>
+      <div class="glossary-def">A cash payment that profitable companies distribute to shareholders, typically quarterly. Dividend yield = annual dividend ÷ stock price. Companies like Coca-Cola, J&J have paid growing dividends for decades.</div>
+      <div class="glossary-example">💡 Holding dividend stocks in your Roth IRA means every quarterly dividend reinvests tax-free — exponentially powerful over 20–30 years.</div>
+    </div>
+
+    <div class="glossary-item" data-terms="capital gains tax profit sell brokerage">
+      <div class="glossary-term">Capital Gains Tax</div>
+      <span class="glossary-cat cat-account">Account</span>
+      <div class="glossary-def">Tax owed when you sell an investment for a profit. <strong>Short-term</strong> (held &lt;1 year): taxed as ordinary income (up to 37%). <strong>Long-term</strong> (held 1+ year): 0%, 15%, or 20% depending on income.</div>
+      <div class="glossary-example">💡 This is why Roth IRA is so powerful for growth — your Roth gains face 0% capital gains tax regardless of how large they grow.</div>
+    </div>
+
+    <div class="glossary-item" data-terms="per pe ratio valuation cheap expensive earnings price">
+      <div class="glossary-term">P/E Ratio (Price-to-Earnings)</div>
+      <span class="glossary-cat cat-market">Market</span>
+      <div class="glossary-def">Stock price divided by annual earnings per share. Tells you how many dollars you pay for each dollar of company earnings. S&P 500 historical average: 15–18x. AI stocks today: 60x+.</div>
+      <div class="glossary-example">💡 P/E of 20 = "I'm paying $20 for every $1 the company earns per year." P/E of 60 = betting heavily on future growth.</div>
+    </div>
+
+    <div class="glossary-item" data-terms="eps earnings per share profit quarterly income">
+      <div class="glossary-term">EPS (Earnings Per Share)</div>
+      <span class="glossary-cat cat-market">Market</span>
+      <div class="glossary-def">A company's net profit divided by the number of shares outstanding. The "E" in the P/E ratio. Reported quarterly. "Beat" = EPS exceeded analyst estimates. "Miss" = fell short.</div>
+      <div class="glossary-example">💡 Intel Q1 2026 EPS: $0.29 actual vs $0.01 estimated = 29x beat. That's why the stock jumped 23.6% in one day.</div>
+    </div>
+
+    <div class="glossary-item" data-terms="revenue sales top line quarterly earnings">
+      <div class="glossary-term">Revenue (Sales / Top Line)</div>
+      <span class="glossary-cat cat-market">Market</span>
+      <div class="glossary-def">The total money a company received from selling products/services, before any expenses. The first line on an income statement. Different from profit — a company can have high revenue and still lose money.</div>
+      <div class="glossary-example">💡 A restaurant's revenue is total meals sold × price. Its profit (net income) is what's left after paying staff, rent, food, taxes.</div>
+    </div>
+
+    <div class="glossary-item" data-terms="guidance forecast outlook next quarter earnings">
+      <div class="glossary-term">Guidance</div>
+      <span class="glossary-cat cat-market">Market</span>
+      <div class="glossary-def">Management's forward-looking prediction of their own next quarter or year performance. The most important number in any earnings release — markets move more on future guidance than past results.</div>
+      <div class="glossary-example">💡 Company beats this quarter but cuts guidance → stock falls. Company barely misses this quarter but raises guidance → stock rises. Always watch guidance.</div>
+    </div>
+
+    <div class="glossary-item" data-terms="priced in expectations market efficient future">
+      <div class="glossary-term">Priced In</div>
+      <span class="glossary-cat cat-market">Market</span>
+      <div class="glossary-def">When known information or expected events are already reflected in the current stock price. Good news that was "priced in" doesn't move the stock because everyone already expected it.</div>
+      <div class="glossary-example">💡 "Buy the rumor, sell the news" — stock rallies on expected iPhone launch. When Apple actually announces, it's priced in. Stock often falls even on good news.</div>
+    </div>
+
+    <div class="glossary-item" data-terms="vix volatility fear index cboe options market anxiety">
+      <div class="glossary-term">VIX (Volatility Index)</div>
+      <span class="glossary-cat cat-market">Market</span>
+      <div class="glossary-def">The "Fear Index." Derived from S&P 500 options prices, it measures how much volatility the market expects over the next 30 days. Under 20 = calm. 20–30 = concerned. 30+ = scared. 40+ = panic.</div>
+      <div class="glossary-example">💡 VIX hit 82 during COVID March 2020. Historically, buying when VIX is very high (maximum fear) has produced above-average returns over the following year.</div>
+    </div>
+
+    <div class="glossary-item" data-terms="inflation cpi prices rising purchasing power money">
+      <div class="glossary-term">Inflation</div>
+      <span class="glossary-cat cat-economy">Economy</span>
+      <div class="glossary-def">The general rise in price levels over time, reducing purchasing power. The Fed targets 2% annual inflation. Measured by CPI (Consumer Price Index) and PCE (Personal Consumption Expenditures).</div>
+      <div class="glossary-example">💡 $100 in 2000 buys what $180 buys today — 80% inflation over 24 years. This is why investing is not optional: cash savings slowly lose purchasing power.</div>
+    </div>
+
+    <div class="glossary-item" data-terms="fed federal reserve interest rate monetary policy central bank fomc">
+      <div class="glossary-term">Federal Reserve (The Fed)</div>
+      <span class="glossary-cat cat-economy">Economy</span>
+      <div class="glossary-def">America's central bank. Sets the federal funds rate (the base interest rate). Dual mandate: ① price stability (2% inflation) ② maximum employment. FOMC meets 8 times/year to set policy.</div>
+      <div class="glossary-example">💡 When the Fed raises rates, your mortgage costs more, your bond funds lose value, and growth stocks get pressured. When it cuts rates, the opposite happens across all your accounts.</div>
+    </div>
+
+    <div class="glossary-item" data-terms="interest rate federal funds rate borrowing cost monetary">
+      <div class="glossary-term">Federal Funds Rate</div>
+      <span class="glossary-cat cat-economy">Economy</span>
+      <div class="glossary-def">The interest rate at which banks lend each other money overnight. The Fed sets this as its primary monetary policy tool. All other interest rates (mortgages, credit cards, business loans) are anchored to this rate.</div>
+      <div class="glossary-example">💡 Fed funds rate at 5.25% → 30-year mortgage ≈ 7%+. Fed cuts to 3% → mortgages drop to 5–6%. This is why rate cuts matter for housing affordability.</div>
+    </div>
+
+    <div class="glossary-item" data-terms="qe quantitative easing money printing bonds buy stimulus">
+      <div class="glossary-term">QE (Quantitative Easing)</div>
+      <span class="glossary-cat cat-economy">Economy</span>
+      <div class="glossary-def">The Fed buying bonds from banks to inject money into the financial system. Lowers long-term rates and boosts asset prices. Used aggressively in 2008 financial crisis and 2020 COVID pandemic.</div>
+      <div class="glossary-example">💡 QE essentially creates new money. It helped stocks recover after 2008 and 2020, but also contributed to inflation in 2021–2022 when too much money chased too few goods.</div>
+    </div>
+
+    <div class="glossary-item" data-terms="qt quantitative tightening bonds sell shrink balance sheet">
+      <div class="glossary-term">QT (Quantitative Tightening)</div>
+      <span class="glossary-cat cat-economy">Economy</span>
+      <div class="glossary-def">The opposite of QE. The Fed stops reinvesting maturing bonds or actively sells bonds, removing money from the financial system. Puts upward pressure on long-term interest rates.</div>
+      <div class="glossary-example">💡 Incoming Fed Chair Warsh favors aggressive QT. More QT → higher long-term rates → more pressure on your growth stocks and long-duration bond ETFs.</div>
+    </div>
+
+    <div class="glossary-item" data-terms="gdp gross domestic product economy size recession expansion">
+      <div class="glossary-term">GDP (Gross Domestic Product)</div>
+      <span class="glossary-cat cat-economy">Economy</span>
+      <div class="glossary-def">The total monetary value of all goods and services produced in a country in one year. US GDP ≈ $27 trillion. Two consecutive quarters of GDP decline = official recession.</div>
+      <div class="glossary-example">💡 Q1 2026 GDP data releases Thursday — one of the most-watched economic reports. Negative surprise could rattle markets; strong number could push back recession fears.</div>
+    </div>
+
+    <div class="glossary-item" data-terms="recession contraction gdp economy downturn two quarters">
+      <div class="glossary-term">Recession</div>
+      <span class="glossary-cat cat-economy">Economy</span>
+      <div class="glossary-def">Two consecutive quarters of negative GDP growth. Officially declared by the NBER. Characterized by rising unemployment, falling consumer spending, declining corporate profits.</div>
+      <div class="glossary-example">💡 During recessions, your 401k and Roth balances fall — but contribution amounts buy more shares at lower prices. Staying invested through recessions has historically been rewarded.</div>
+    </div>
+
+    <div class="glossary-item" data-terms="stagflation stagnation inflation high prices slow economy">
+      <div class="glossary-term">Stagflation</div>
+      <span class="glossary-cat cat-economy">Economy</span>
+      <div class="glossary-def">The worst economic scenario: high inflation + slow/declining economic growth + high unemployment simultaneously. The Fed's standard tools don't work cleanly. Last seen in the 1970s oil crisis.</div>
+      <div class="glossary-example">💡 The Iran war's oil price spike combined with slowing global growth is raising stagflation concerns — which is why the Fed faces such a difficult policy environment right now.</div>
+    </div>
+
+    <div class="glossary-item" data-terms="duration bond sensitivity rate change long term short">
+      <div class="glossary-term">Duration (Bond)</div>
+      <span class="glossary-cat cat-risk">Risk</span>
+      <div class="glossary-def">A measure of how sensitive a bond's price is to interest rate changes. Duration of 10 means: if rates rise 1%, the bond loses ~10% of its value. Longer-maturity bonds have higher duration.</div>
+      <div class="glossary-example">💡 TLT (20+ year Treasury ETF) has duration ~17. If rates rise 1%, TLT drops ~17%. In uncertain rate environments, stick to short-duration bond ETFs like BIL or SHY.</div>
+    </div>
+
+    <div class="glossary-item" data-terms="yield curve interest rate 10 year 2 year inversion recession">
+      <div class="glossary-term">Yield Curve</div>
+      <span class="glossary-cat cat-market">Market</span>
+      <div class="glossary-def">A graph showing interest rates across different bond maturities. Normal: long-term rates higher than short-term. Inverted: short-term rates higher than long-term — historically a recession warning signal.</div>
+      <div class="glossary-example">💡 2022–2023 inversion: 2-year Treasury yielded more than 10-year for the longest stretch since the 1980s. Every major US recession in 50 years was preceded by yield curve inversion.</div>
+    </div>
+
+    <div class="glossary-item" data-terms="rebalancing portfolio allocation target drift sell buy">
+      <div class="glossary-term">Rebalancing</div>
+      <span class="glossary-cat cat-investment">Investment</span>
+      <div class="glossary-def">Restoring your target asset allocation after market movements cause drift. Involves selling what has risen above target and buying what has fallen below. Naturally implements "sell high, buy low."</div>
+      <div class="glossary-example">💡 Best done in your Roth IRA — no tax consequences for selling. In Brokerage, use new contributions to buy underweight assets instead of selling overweight ones.</div>
+    </div>
+
+    <div class="glossary-item" data-terms="diversification spread risk multiple assets allocation">
+      <div class="glossary-term">Diversification</div>
+      <span class="glossary-cat cat-risk">Risk</span>
+      <div class="glossary-def">Spreading investments across different assets, sectors, and geographies to reduce the impact of any single investment performing poorly. "Don't put all your eggs in one basket."</div>
+      <div class="glossary-example">💡 VTI (US total market) + VXUS (international) + BND (bonds) is a simple, diversified portfolio that requires no stock-picking skill.</div>
+    </div>
+
+    <div class="glossary-item" data-terms="asset allocation stocks bonds cash portfolio construction">
+      <div class="glossary-term">Asset Allocation</div>
+      <span class="glossary-cat cat-investment">Investment</span>
+      <div class="glossary-def">The strategic distribution of investments across asset classes (stocks, bonds, cash, real estate, etc.). Research shows it determines ~90% of long-term portfolio returns. Adjusted based on age, goals, and risk tolerance.</div>
+      <div class="glossary-example">💡 A common rule of thumb: subtract your age from 110 to get your stock percentage. Age 35 → 75% stocks, 25% bonds. More aggressive versions use 120 or even 130.</div>
+    </div>
+
+    <div class="glossary-item" data-terms="dollar reserve currency hegemony global trade usd">
+      <div class="glossary-term">Reserve Currency</div>
+      <span class="glossary-cat cat-economy">Economy</span>
+      <div class="glossary-def">A currency held by central banks worldwide and used for international trade. The US dollar is the world's primary reserve currency (~58% of global reserves). Oil and most commodities are priced in dollars.</div>
+      <div class="glossary-example">💡 Dollar dominance means the US can run large deficits without the dollar collapsing — other countries need dollars. This "exorbitant privilege" is protected by military power, SWIFT control, and increasingly, stablecoins.</div>
+    </div>
+
+    <div class="glossary-item" data-terms="tariff trade import tax price goods customs">
+      <div class="glossary-term">Tariff</div>
+      <span class="glossary-cat cat-economy">Economy</span>
+      <div class="glossary-def">A tax on imported goods. Paid by the importing company, which typically passes the cost to consumers through higher prices. Acts as an inflationary force and a trade barrier.</div>
+      <div class="glossary-example">💡 30% tariff on Chinese goods = a $30 premium on every $100 of Chinese imports. That premium eventually shows up in the prices you pay at stores — estimated at ~$700/US household/year currently.</div>
+    </div>
+
+    <div class="glossary-item" data-terms="free cash flow fcf cash profit capex spending">
+      <div class="glossary-term">Free Cash Flow (FCF)</div>
+      <span class="glossary-cat cat-market">Market</span>
+      <div class="glossary-def">Operating cash flow minus capital expenditures. The actual cash a company generates that it can freely use — to pay dividends, buy back shares, or invest. Often more reliable than "earnings" as a health metric.</div>
+      <div class="glossary-example">💡 Amazon's FCF may go deeply negative due to AI data center spending. That's not necessarily bad — it's strategic investment. But investors rightly ask "when will all this spending start generating returns?"</div>
+    </div>
+
+    <div class="glossary-item" data-terms="capex capital expenditure investment infrastructure spending long term">
+      <div class="glossary-term">CapEx (Capital Expenditures)</div>
+      <span class="glossary-cat cat-market">Market</span>
+      <div class="glossary-def">Money spent on acquiring, upgrading, or maintaining long-term physical or infrastructure assets — factories, data centers, equipment. Shows up as cash outflow, reducing FCF.</div>
+      <div class="glossary-example">💡 Big Tech's collective AI data center CapEx is ~$700 billion in 2026. This spending hurts FCF now but is bet on future AI revenue. This week's earnings will reveal whether they're still accelerating this spending.</div>
+    </div>
+
+    <div class="glossary-item" data-terms="bear bull market rally decline 20 percent">
+      <div class="glossary-term">Bull vs Bear Market</div>
+      <span class="glossary-cat cat-market">Market</span>
+      <div class="glossary-def"><strong>Bull market:</strong> Sustained rise of 20%+ from a recent low. <strong>Bear market:</strong> Sustained decline of 20%+ from a recent high. A "correction" is a 10–20% drop (less severe than a bear market).</div>
+      <div class="glossary-example">💡 The S&P 500 is currently near all-time highs — bull market territory. But sector-specific bears can coexist with broad bull markets (e.g., airline stocks in a bear while tech is in a bull).</div>
+    </div>
+
+    <div class="glossary-item" data-terms="stablecoin crypto dollar digital usdc usdt genius">
+      <div class="glossary-term">Stablecoin</div>
+      <span class="glossary-cat cat-economy">Economy</span>
+      <div class="glossary-def">A cryptocurrency pegged to a stable asset, typically the US dollar. Each USDC or USDT is backed by real dollars or US Treasury bonds. The GENIUS Act (2025) formally regulated these, requiring 100% reserves.</div>
+      <div class="glossary-example">💡 As stablecoins spread globally, each new one issued requires buying US dollars or Treasuries as reserves. This is a new mechanism for extending dollar demand globally without printing physical cash.</div>
+    </div>
+
+    <div class="glossary-item" data-terms="compound interest growth exponential time returns reinvest">
+      <div class="glossary-term">Compound Interest</div>
+      <span class="glossary-cat cat-investment">Investment</span>
+      <div class="glossary-def">Earning returns on your returns. Your investment grows, and future returns are calculated on the larger base. The longer the time horizon, the more dramatic the effect. Einstein allegedly called it "the eighth wonder of the world."</div>
+      <div class="glossary-example">💡 $10,000 at 7%/year: after 10 years → $19,672. After 30 years → $76,123. After 40 years → $149,745. The last 10 years generated more than all the previous 30 combined.</div>
+    </div>
+
+  </div>
+</div>
+</div>
+<!-- END EN GLOSSARY -->
+
+</div><!-- end panel-en -->
+
+<!-- ═══════════════════════════════════════
+     KOREAN PANEL  
+═══════════════════════════════════════ -->
+<div class="lang-panel" id="panel-kr">
+
+<!-- Korean sections reference the original document - shown as placeholder with link to Korean content -->
+<div class="sec active" id="kr-s1" style="--dc:var(--d1)">
+<div class="hero" style="background:var(--d1)" data-n="1">
+  <div class="hero-eye">Day 1 · Foundation</div>
+  <div class="hero-title">주식·채권·ETF·계좌<br>— 자산의 언어를 읽다</div>
+  <div class="hero-sub">기초 용어 완전 정복 + Roth IRA vs Brokerage 세금 전략까지</div>
+  <div class="hero-q">"내가 ETF를 산다는 게 정확히 무슨 의미인가?"</div>
+  <div class="hero-meta"><span class="hero-chip">⏱ 35~45분</span><span class="hero-chip">📖 개념 9개</span><span class="hero-chip">🎯 퀴즈 6문항</span></div>
+</div>
+<div class="cw">
+  <div class="kp"><div class="kp-icon">📖</div><p><strong>한국어 콘텐츠가 여기에 들어갑니다.</strong> 현재 이 파일은 영어 탭을 새로 구축한 버전입니다. 기존 한국어 강의 내용(업로드하신 Document 3)을 그대로 이 구조에 통합할 수 있습니다. Day 1~6 + 용어사전 한국어 버전을 추가하시려면 말씀해 주세요!</p></div>
+  <div class="example"><div class="example-lbl">이렇게 이용하세요</div>
+  <ul>
+    <li>상단의 <strong>English</strong> 버튼 → 영어 버전 학습</li>
+    <li><strong>한국어</strong> 버튼 → 한국어 버전 (곧 추가 예정)</li>
+    <li>Day 1~6 탭과 용어사전 탭은 양쪽 언어에서 동일하게 작동합니다</li>
+  </ul></div>
+</div>
+</div>
+
+<div class="sec" id="kr-s2" style="--dc:var(--d2)"><div class="hero" style="background:var(--d2)" data-n="2"><div class="hero-eye">Day 2</div><div class="hero-title">시장 원리</div></div><div class="cw"><div class="kp"><div class="kp-icon">🔄</div><p>한국어 Day 2 콘텐츠가 여기에 들어갑니다.</p></div></div></div>
+<div class="sec" id="kr-s3" style="--dc:var(--d3)"><div class="hero" style="background:var(--d3)" data-n="3"><div class="hero-eye">Day 3</div><div class="hero-title">금리·인플레이션</div></div><div class="cw"><div class="kp"><div class="kp-icon">🔄</div><p>한국어 Day 3 콘텐츠가 여기에 들어갑니다.</p></div></div></div>
+<div class="sec" id="kr-s4" style="--dc:var(--d4)"><div class="hero" style="background:var(--d4)" data-n="4"><div class="hero-eye">Day 4</div><div class="hero-title">거시경제·지정학</div></div><div class="cw"><div class="kp"><div class="kp-icon">🔄</div><p>한국어 Day 4 콘텐츠가 여기에 들어갑니다.</p></div></div></div>
+<div class="sec" id="kr-s5" style="--dc:var(--d5)"><div class="hero" style="background:var(--d5)" data-n="5"><div class="hero-eye">Day 5</div><div class="hero-title">AI·테크 투자</div></div><div class="cw"><div class="kp"><div class="kp-icon">🔄</div><p>한국어 Day 5 콘텐츠가 여기에 들어갑니다.</p></div></div></div>
+<div class="sec" id="kr-s6" style="--dc:var(--d6)"><div class="hero" style="background:var(--d6)" data-n="6"><div class="hero-eye">Day 6</div><div class="hero-title">포트폴리오 설계</div></div><div class="cw"><div class="kp"><div class="kp-icon">🔄</div><p>한국어 Day 6 콘텐츠가 여기에 들어갑니다.</p></div></div></div>
+<div class="sec" id="kr-s7" style="--dc:var(--dg)"><div class="hero" style="background:#374151" data-n="G"><div class="hero-eye">용어사전</div><div class="hero-title">금융 용어사전</div></div><div class="cw"><div class="kp"><div class="kp-icon">📖</div><p>한국어 용어사전이 여기에 들어갑니다. 영어 탭의 용어사전과 동일한 모든 용어의 한국어 설명이 추가됩니다.</p></div></div></div>
+
+</div><!-- end panel-kr -->
+
+<script>
+// ── State ──
+const ansMap = {};
+let currentLang = 'en';
+let currentDay = 1;
+
+// ── Language switch ──
+function setLang(lang, btn) {
+  currentLang = lang;
+  document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.lang-panel').forEach(p => p.classList.remove('active'));
+  document.getElementById('panel-' + lang).classList.add('active');
+  // Restore day
+  const sec = document.getElementById(lang + '-s' + currentDay);
+  document.querySelectorAll('#panel-' + lang + ' .sec').forEach(s => s.classList.remove('active'));
+  if (sec) sec.classList.add('active');
+}
+
+// ── Day nav ──
+function showDay(n, el) {
+  currentDay = n;
+  // Update nav
+  document.querySelectorAll('.gnav-item').forEach(i => i.classList.remove('active'));
+  el.classList.add('active');
+  // Update active section in current lang panel
+  const panel = document.getElementById('panel-' + currentLang);
+  panel.querySelectorAll('.sec').forEach(s => s.classList.remove('active'));
+  const sec = document.getElementById(currentLang + '-s' + n);
+  if (sec) sec.classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// ── Quiz ──
+function ans(qid, chosen, correct) {
+  if (ansMap[qid]) return;
+  ansMap[qid] = { chosen, correct };
+  const opts = document.querySelectorAll('#' + qid + ' .opt');
+  ['a','b','c'].forEach((l, i) => {
+    if (l === correct) opts[i].classList.add('correct');
+    else if (l === chosen && chosen !== correct) opts[i].classList.add('wrong');
+  });
+  const exp = document.getElementById('e_' + qid);
+  if (exp) exp.classList.add('show');
+}
+
+function result(day, total) {
+  // Map day id to question prefix
+  const prefixMap = {
+    ed1: 'eq1', ed2: 'eq2', ed3: 'eq3', ed4: 'eq4', ed5: 'eq5', ed6: 'eq6',
+    d1: 'q1', d2: 'q2', d3: 'q3', d4: 'q4', d5: 'q5', d6: 'q6'
+  };
+  const letters = ['a','b','c','d','e','f'];
+  const prefix = prefixMap[day] || day;
+  let ok = 0;
+  for (let i = 0; i < total; i++) {
+    const qid = prefix + letters[i];
+    if (ansMap[qid] && ansMap[qid].chosen === ansMap[qid].correct) ok++;
+  }
+  const pct = Math.round(ok / total * 100);
+  const msgs = ['Review the material and try again 😊', 'Good effort — a bit more review will help 💪', 'Great job — almost there! 👍', 'Perfect score — you nailed it! 🎉'];
+  const mi = ok <= 1 ? 0 : ok <= 3 ? 1 : ok === 4 ? 2 : ok === 5 ? 2 : 3;
+  document.getElementById('sc_' + day).textContent = ok + ' / ' + total + ' correct (' + pct + '%)';
+  document.getElementById('ms_' + day).textContent = msgs[mi];
+  document.getElementById('r_' + day).classList.add('show');
+}
+
+// ── Glossary search ──
+function filterGlossary(lang) {
+  const input = document.getElementById(lang + '-gloss-search').value.toLowerCase();
+  const items = document.querySelectorAll('#' + lang + '-glossary .glossary-item');
+  let shown = 0;
+  items.forEach(item => {
+    const text = (item.dataset.terms || '') + ' ' + item.textContent.toLowerCase();
+    if (!input || text.includes(input)) {
+      item.classList.remove('hidden');
+      shown++;
+    } else {
+      item.classList.add('hidden');
+    }
+  });
+  const grid = document.getElementById(lang + '-glossary');
+  let empty = grid.querySelector('.glossary-empty');
+  if (shown === 0) {
+    if (!empty) {
+      empty = document.createElement('div');
+      empty.className = 'glossary-empty';
+      empty.style.gridColumn = '1/-1';
+      grid.appendChild(empty);
+    }
+    empty.textContent = 'No terms found for "' + input + '"';
+  } else if (empty) {
+    empty.remove();
+  }
+}
+</script>
+</body>
+</html>
